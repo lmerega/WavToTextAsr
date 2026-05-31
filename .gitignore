@@ -1,0 +1,12 @@
+bin/
+obj/
+publish/
+publish-gui-test/
+
+*.user
+*.suo
+*.rsuser
+
+*.json
+!*.csproj
+!*.sln

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AppTitle" xml:space="preserve"><value>Audio to text converter</value></data>
+  <data name="ExecutableFolder" xml:space="preserve"><value>Executable folder: {0}</value></data>
+  <data name="GoogleCredentialsFound" xml:space="preserve"><value>Google credentials found: {0}</value></data>
+  <data name="FolderNotFound" xml:space="preserve"><value>Folder not found: {0}</value></data>
+  <data name="NoAudioFilesFound" xml:space="preserve"><value>No audio files to convert were found.</value></data>
+  <data name="PutAudioFilesInFolder" xml:space="preserve"><value>Put the audio files in the "{0}" folder and run the program again.</value></data>
+  <data name="AudioFilesFound" xml:space="preserve"><value>Audio files found: {0}</value></data>
+  <data name="AutomaticTranscriptionRunning" xml:space="preserve"><value>Automatic transcription is running.</value></data>
+  <data name="RunSummaryTitle" xml:space="preserve"><value>RUN SUMMARY</value></data>
+  <data name="FilesFoundSummary" xml:space="preserve"><value>Files found      : {0}</value></data>
+  <data name="FilesSucceededSummary" xml:space="preserve"><value>Files processed OK: {0}</value></data>
+  <data name="FilesFailedSummary" xml:space="preserve"><value>Files with errors : {0}</value></data>
+  <data name="ErrorDetails" xml:space="preserve"><value>Error details:</value></data>
+  <data name="SummaryCreated" xml:space="preserve"><value>Summary created</value></data>
+  <data name="FatalErrorTitle" xml:space="preserve"><value>FATAL ERROR</value></data>
+  <data name="Completed" xml:space="preserve"><value>Completed</value></data>
+  <data name="TranscribedProgress" xml:space="preserve"><value>Transcribed: {0} files out of {1}</value></data>
+  <data name="DetectedLanguage" xml:space="preserve"><value>Detected language: {0}</value></data>
+  <data name="DetectedLanguageCode" xml:space="preserve"><value>Detected language code: {0}</value></data>
+  <data name="Error" xml:space="preserve"><value>Error</value></data>
+  <data name="FileError" xml:space="preserve"><value>File error: {0}</value></data>
+  <data name="ReadingAudioFile" xml:space="preserve"><value>Reading audio file</value></data>
+  <data name="UploadDoneRecognitionRunning" xml:space="preserve"><value>Upload completed - recognition in progress</value></data>
+  <data name="ReceivingRecognizedText" xml:space="preserve"><value>Receiving recognized text</value></data>
+  <data name="NoTranscriptionDetected" xml:space="preserve"><value>[NO TRANSCRIPTION DETECTED]</value></data>
+  <data name="TranscriptionSummaryTitle" xml:space="preserve"><value>TRANSCRIPTION SUMMARY</value></data>
+  <data name="SummaryFileName" xml:space="preserve"><value>File name: {0}</value></data>
+  <data name="SummaryLanguage" xml:space="preserve"><value>Language: {0}</value></data>
+  <data name="MessageText" xml:space="preserve"><value>Message text:</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>Not available</value></data>
+  <data name="NotAvailableLower" xml:space="preserve"><value>not available</value></data>
+  <data name="NoJsonFound" xml:space="preserve"><value>No JSON file was found in the executable folder.</value></data>
+  <data name="NoValidGoogleCredentialJsonFound" xml:space="preserve"><value>No valid Google credentials JSON file was found in the executable folder.</value></data>
+  <data name="JsonNotGoogleServiceAccount" xml:space="preserve"><value>The JSON file is not a valid Google service account.</value></data>
+  <data name="ProjectIdNotFound" xml:space="preserve"><value>project_id field not found.</value></data>
+  <data name="ProjectIdEmpty" xml:space="preserve"><value>project_id is empty.</value></data>
+  <data name="InstructionsTitle" xml:space="preserve"><value>INSTRUCTIONS</value></data>
+  <data name="HelpWhatItDoes" xml:space="preserve"><value>This program converts audio files into text files.</value></data>
+  <data name="HelpRequiredFiles" xml:space="preserve"><value>What to place in the same folder as the program:</value></data>
+  <data name="HelpCredentialFile" xml:space="preserve"><value>  &lt;Google credentials&gt;.json</value></data>
+  <data name="HelpPutAudioInWavfiles" xml:space="preserve"><value>Put the audio files to convert inside the wavfiles folder.</value></data>
+  <data name="HelpSubfolders" xml:space="preserve"><value>You can also use subfolders: they will be checked automatically.</value></data>
+  <data name="HelpSupportedFormats" xml:space="preserve"><value>Supported audio formats:</value></data>
+  <data name="HelpResult" xml:space="preserve"><value>Result:</value></data>
+  <data name="HelpTxtCreated" xml:space="preserve"><value> - A .txt file is created next to each audio file.</value></data>
+  <data name="HelpSummaryCreated" xml:space="preserve"><value> - RiepilogoTrascrizioni.txt is also created next to the program.</value></data>
+  <data name="HelpMultipleJson1" xml:space="preserve"><value>If the folder contains more than one JSON file, the program uses the one</value></data>
+  <data name="HelpMultipleJson2" xml:space="preserve"><value>that contains the correct Google credentials.</value></data>
+  <data name="HelpLanguageSelection" xml:space="preserve"><value>Language: selected automatically from the operating system.</value></data>
+  <data name="HelpLanguageExamples" xml:space="preserve"><value>To force it: WavToGoogleAsr.exe --lang it or WavToGoogleAsr.exe --lang en</value></data>
+  <data name="PressAnyKeyToClose" xml:space="preserve"><value>Press any key to close...</value></data>
+  <data name="CredentialFileLabel" xml:space="preserve"><value>Google credentials</value></data>
+  <data name="AudioFolderLabel" xml:space="preserve"><value>Audio folder</value></data>
+  <data name="BrowseButton" xml:space="preserve"><value>Browse...</value></data>
+  <data name="BrowseButtonShortcut" xml:space="preserve"><value>&amp;Browse...</value></data>
+  <data name="RefreshButton" xml:space="preserve"><value>Refresh</value></data>
+  <data name="RefreshButtonShortcut" xml:space="preserve"><value>&amp;Refresh</value></data>
+  <data name="ConvertButton" xml:space="preserve"><value>Convert</value></data>
+  <data name="ConvertButtonShortcut" xml:space="preserve"><value>&amp;Convert</value></data>
+  <data name="ConvertingButton" xml:space="preserve"><value>Converting...</value></data>
+  <data name="LogTab" xml:space="preserve"><value>Log</value></data>
+  <data name="InstructionsTab" xml:space="preserve"><value>Instructions</value></data>
+  <data name="FilesReadyLabel" xml:space="preserve"><value>Audio files ready: {0}</value></data>
+  <data name="JsonFileFilter" xml:space="preserve"><value>JSON files (*.json)|*.json|All files (*.*)|*.*</value></data>
+  <data name="CredentialMissingMessage" xml:space="preserve"><value>Select a valid Google credentials JSON file.</value></data>
+  <data name="AudioFolderMissingMessage" xml:space="preserve"><value>Select a valid audio folder.</value></data>
+  <data name="ConversionCompletedMessage" xml:space="preserve"><value>Conversion completed.</value></data>
+  <data name="DarkThemeLabel" xml:space="preserve"><value>&amp;Dark theme</value></data>
+  <data name="HelpFormCredential" xml:space="preserve"><value>Choose the Google credentials JSON file with the Browse button. It can be anywhere on the computer.</value></data>
+  <data name="HelpFormAudioFolder" xml:space="preserve"><value>Choose the folder that contains the audio files. It can be any folder; subfolders are scanned automatically.</value></data>
+  <data name="HelpFormConvert" xml:space="preserve"><value>Check the file list, then press Convert. The log shows progress and errors.</value></data>
+  <data name="InterfaceLanguageLabel" xml:space="preserve"><value>Interface language</value></data>
+  <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;Cancel</value></data>
+  <data name="ConversionCancelledMessage" xml:space="preserve"><value>Conversion cancelled.</value></data>
+</root>

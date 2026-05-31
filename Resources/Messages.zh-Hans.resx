@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AppTitle" xml:space="preserve"><value>音频转文字转换器</value></data>
+  <data name="ExecutableFolder" xml:space="preserve"><value>程序文件夹: {0}</value></data>
+  <data name="GoogleCredentialsFound" xml:space="preserve"><value>已找到 Google 凭据: {0}</value></data>
+  <data name="FolderNotFound" xml:space="preserve"><value>未找到文件夹: {0}</value></data>
+  <data name="NoAudioFilesFound" xml:space="preserve"><value>未找到要转换的音频文件。</value></data>
+  <data name="PutAudioFilesInFolder" xml:space="preserve"><value>请将音频文件放入 "{0}" 文件夹，然后重新运行程序。</value></data>
+  <data name="AudioFilesFound" xml:space="preserve"><value>找到音频文件: {0}</value></data>
+  <data name="AutomaticTranscriptionRunning" xml:space="preserve"><value>正在自动转写。</value></data>
+  <data name="RunSummaryTitle" xml:space="preserve"><value>运行摘要</value></data>
+  <data name="FilesFoundSummary" xml:space="preserve"><value>找到文件      : {0}</value></data>
+  <data name="FilesSucceededSummary" xml:space="preserve"><value>成功处理文件  : {0}</value></data>
+  <data name="FilesFailedSummary" xml:space="preserve"><value>出错文件      : {0}</value></data>
+  <data name="ErrorDetails" xml:space="preserve"><value>错误详情:</value></data>
+  <data name="SummaryCreated" xml:space="preserve"><value>摘要已创建</value></data>
+  <data name="FatalErrorTitle" xml:space="preserve"><value>严重错误</value></data>
+  <data name="Completed" xml:space="preserve"><value>已完成</value></data>
+  <data name="TranscribedProgress" xml:space="preserve"><value>已转写: {0}/{1} 个文件</value></data>
+  <data name="DetectedLanguage" xml:space="preserve"><value>检测到的语言: {0}</value></data>
+  <data name="DetectedLanguageCode" xml:space="preserve"><value>检测到的语言代码: {0}</value></data>
+  <data name="Error" xml:space="preserve"><value>错误</value></data>
+  <data name="FileError" xml:space="preserve"><value>文件错误: {0}</value></data>
+  <data name="ReadingAudioFile" xml:space="preserve"><value>正在读取音频文件</value></data>
+  <data name="UploadDoneRecognitionRunning" xml:space="preserve"><value>上传完成 - 正在识别</value></data>
+  <data name="ReceivingRecognizedText" xml:space="preserve"><value>正在接收识别文本</value></data>
+  <data name="NoTranscriptionDetected" xml:space="preserve"><value>[未检测到转写内容]</value></data>
+  <data name="TranscriptionSummaryTitle" xml:space="preserve"><value>转写摘要</value></data>
+  <data name="SummaryFileName" xml:space="preserve"><value>文件名: {0}</value></data>
+  <data name="SummaryLanguage" xml:space="preserve"><value>语言: {0}</value></data>
+  <data name="MessageText" xml:space="preserve"><value>消息文本:</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>不可用</value></data>
+  <data name="NotAvailableLower" xml:space="preserve"><value>不可用</value></data>
+  <data name="NoJsonFound" xml:space="preserve"><value>在程序文件夹中未找到 JSON 文件。</value></data>
+  <data name="NoValidGoogleCredentialJsonFound" xml:space="preserve"><value>在程序文件夹中未找到有效的 Google 凭据 JSON 文件。</value></data>
+  <data name="JsonNotGoogleServiceAccount" xml:space="preserve"><value>该 JSON 文件不是有效的 Google 服务账号。</value></data>
+  <data name="ProjectIdNotFound" xml:space="preserve"><value>未找到 project_id 字段。</value></data>
+  <data name="ProjectIdEmpty" xml:space="preserve"><value>project_id 为空。</value></data>
+  <data name="InstructionsTitle" xml:space="preserve"><value>说明</value></data>
+  <data name="HelpWhatItDoes" xml:space="preserve"><value>此程序将音频文件转换为文本文件。</value></data>
+  <data name="HelpRequiredFiles" xml:space="preserve"><value>需要放在程序同一文件夹中的内容:</value></data>
+  <data name="HelpCredentialFile" xml:space="preserve"><value>  &lt;Google 凭据&gt;.json</value></data>
+  <data name="HelpPutAudioInWavfiles" xml:space="preserve"><value>将要转换的音频放入 wavfiles 文件夹。</value></data>
+  <data name="HelpSubfolders" xml:space="preserve"><value>也可以使用子文件夹: 程序会自动检查。</value></data>
+  <data name="HelpSupportedFormats" xml:space="preserve"><value>支持的音频格式:</value></data>
+  <data name="HelpResult" xml:space="preserve"><value>结果:</value></data>
+  <data name="HelpTxtCreated" xml:space="preserve"><value> - 每个音频文件旁边都会创建一个 .txt 文件。</value></data>
+  <data name="HelpSummaryCreated" xml:space="preserve"><value> - 程序旁边还会创建 RiepilogoTrascrizioni.txt。</value></data>
+  <data name="HelpMultipleJson1" xml:space="preserve"><value>如果文件夹中有多个 JSON 文件，程序会使用</value></data>
+  <data name="HelpMultipleJson2" xml:space="preserve"><value>包含正确 Google 凭据的那个文件。</value></data>
+  <data name="HelpLanguageSelection" xml:space="preserve"><value>语言: 根据操作系统自动选择。</value></data>
+  <data name="HelpLanguageExamples" xml:space="preserve"><value>手动指定: WavToGoogleAsr.exe --lang zh 或 WavToGoogleAsr.exe --lang en</value></data>
+  <data name="PressAnyKeyToClose" xml:space="preserve"><value>按任意键关闭...</value></data>
+  <data name="InterfaceLanguageLabel" xml:space="preserve"><value>界面语言</value></data>
+  <data name="CancelButtonShortcut" xml:space="preserve"><value>取消(&amp;C)</value></data>
+  <data name="ConversionCancelledMessage" xml:space="preserve"><value>转换已取消。</value></data>
+</root>

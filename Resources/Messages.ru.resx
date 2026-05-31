@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AppTitle" xml:space="preserve"><value>Конвертер аудио в текст</value></data>
+  <data name="ExecutableFolder" xml:space="preserve"><value>Папка программы: {0}</value></data>
+  <data name="GoogleCredentialsFound" xml:space="preserve"><value>Учетные данные Google найдены: {0}</value></data>
+  <data name="FolderNotFound" xml:space="preserve"><value>Папка не найдена: {0}</value></data>
+  <data name="NoAudioFilesFound" xml:space="preserve"><value>Аудиофайлы для преобразования не найдены.</value></data>
+  <data name="PutAudioFilesInFolder" xml:space="preserve"><value>Поместите аудиофайлы в папку "{0}" и запустите программу снова.</value></data>
+  <data name="AudioFilesFound" xml:space="preserve"><value>Найдено аудиофайлов: {0}</value></data>
+  <data name="AutomaticTranscriptionRunning" xml:space="preserve"><value>Идет автоматическая транскрипция.</value></data>
+  <data name="RunSummaryTitle" xml:space="preserve"><value>ИТОГ ВЫПОЛНЕНИЯ</value></data>
+  <data name="FilesFoundSummary" xml:space="preserve"><value>Найдено файлов       : {0}</value></data>
+  <data name="FilesSucceededSummary" xml:space="preserve"><value>Обработано успешно   : {0}</value></data>
+  <data name="FilesFailedSummary" xml:space="preserve"><value>Файлов с ошибками    : {0}</value></data>
+  <data name="ErrorDetails" xml:space="preserve"><value>Сведения об ошибках:</value></data>
+  <data name="SummaryCreated" xml:space="preserve"><value>Сводка создана</value></data>
+  <data name="FatalErrorTitle" xml:space="preserve"><value>КРИТИЧЕСКАЯ ОШИБКА</value></data>
+  <data name="Completed" xml:space="preserve"><value>Готово</value></data>
+  <data name="TranscribedProgress" xml:space="preserve"><value>Расшифровано: {0} из {1} файлов</value></data>
+  <data name="DetectedLanguage" xml:space="preserve"><value>Определенный язык: {0}</value></data>
+  <data name="DetectedLanguageCode" xml:space="preserve"><value>Код определенного языка: {0}</value></data>
+  <data name="Error" xml:space="preserve"><value>Ошибка</value></data>
+  <data name="FileError" xml:space="preserve"><value>Ошибка файла: {0}</value></data>
+  <data name="ReadingAudioFile" xml:space="preserve"><value>Чтение аудиофайла</value></data>
+  <data name="UploadDoneRecognitionRunning" xml:space="preserve"><value>Загрузка завершена - идет распознавание</value></data>
+  <data name="ReceivingRecognizedText" xml:space="preserve"><value>Получение распознанного текста</value></data>
+  <data name="NoTranscriptionDetected" xml:space="preserve"><value>[ТРАНСКРИПЦИЯ НЕ ОБНАРУЖЕНА]</value></data>
+  <data name="TranscriptionSummaryTitle" xml:space="preserve"><value>СВОДКА ТРАНСКРИПЦИЙ</value></data>
+  <data name="SummaryFileName" xml:space="preserve"><value>Имя файла: {0}</value></data>
+  <data name="SummaryLanguage" xml:space="preserve"><value>Язык: {0}</value></data>
+  <data name="MessageText" xml:space="preserve"><value>Текст сообщения:</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>Недоступно</value></data>
+  <data name="NotAvailableLower" xml:space="preserve"><value>недоступно</value></data>
+  <data name="NoJsonFound" xml:space="preserve"><value>JSON-файл не найден в папке программы.</value></data>
+  <data name="NoValidGoogleCredentialJsonFound" xml:space="preserve"><value>В папке программы не найден действительный JSON-файл с учетными данными Google.</value></data>
+  <data name="JsonNotGoogleServiceAccount" xml:space="preserve"><value>JSON-файл не является действительной служебной учетной записью Google.</value></data>
+  <data name="ProjectIdNotFound" xml:space="preserve"><value>Поле project_id не найдено.</value></data>
+  <data name="ProjectIdEmpty" xml:space="preserve"><value>project_id пуст.</value></data>
+  <data name="InstructionsTitle" xml:space="preserve"><value>ИНСТРУКЦИИ</value></data>
+  <data name="HelpWhatItDoes" xml:space="preserve"><value>Эта программа преобразует аудиофайлы в текстовые файлы.</value></data>
+  <data name="HelpRequiredFiles" xml:space="preserve"><value>Что нужно поместить в одну папку с программой:</value></data>
+  <data name="HelpCredentialFile" xml:space="preserve"><value>  &lt;учетные данные Google&gt;.json</value></data>
+  <data name="HelpPutAudioInWavfiles" xml:space="preserve"><value>Поместите аудио для преобразования в папку wavfiles.</value></data>
+  <data name="HelpSubfolders" xml:space="preserve"><value>Можно использовать подпапки: они будут проверены автоматически.</value></data>
+  <data name="HelpSupportedFormats" xml:space="preserve"><value>Поддерживаемые аудиоформаты:</value></data>
+  <data name="HelpResult" xml:space="preserve"><value>Результат:</value></data>
+  <data name="HelpTxtCreated" xml:space="preserve"><value> - Для каждого аудиофайла рядом создается файл .txt.</value></data>
+  <data name="HelpSummaryCreated" xml:space="preserve"><value> - Рядом с программой также создается RiepilogoTrascrizioni.txt.</value></data>
+  <data name="HelpMultipleJson1" xml:space="preserve"><value>Если в папке несколько JSON-файлов, программа использует тот,</value></data>
+  <data name="HelpMultipleJson2" xml:space="preserve"><value>который содержит правильные учетные данные Google.</value></data>
+  <data name="HelpLanguageSelection" xml:space="preserve"><value>Язык: выбирается автоматически по операционной системе.</value></data>
+  <data name="HelpLanguageExamples" xml:space="preserve"><value>Чтобы выбрать вручную: WavToGoogleAsr.exe --lang ru или WavToGoogleAsr.exe --lang en</value></data>
+  <data name="PressAnyKeyToClose" xml:space="preserve"><value>Нажмите любую клавишу, чтобы закрыть...</value></data>
+  <data name="InterfaceLanguageLabel" xml:space="preserve"><value>Язык интерфейса</value></data>
+  <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;Отмена</value></data>
+  <data name="ConversionCancelledMessage" xml:space="preserve"><value>Преобразование отменено.</value></data>
+</root>

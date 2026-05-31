@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AppTitle" xml:space="preserve"><value>ऑडियो से टेक्स्ट कन्वर्टर</value></data>
+  <data name="ExecutableFolder" xml:space="preserve"><value>प्रोग्राम फ़ोल्डर: {0}</value></data>
+  <data name="GoogleCredentialsFound" xml:space="preserve"><value>Google क्रेडेंशियल मिले: {0}</value></data>
+  <data name="FolderNotFound" xml:space="preserve"><value>फ़ोल्डर नहीं मिला: {0}</value></data>
+  <data name="NoAudioFilesFound" xml:space="preserve"><value>कन्वर्ट करने के लिए कोई ऑडियो फ़ाइल नहीं मिली।</value></data>
+  <data name="PutAudioFilesInFolder" xml:space="preserve"><value>ऑडियो फ़ाइलों को "{0}" फ़ोल्डर में रखें और प्रोग्राम फिर से चलाएं।</value></data>
+  <data name="AudioFilesFound" xml:space="preserve"><value>मिली ऑडियो फ़ाइलें: {0}</value></data>
+  <data name="AutomaticTranscriptionRunning" xml:space="preserve"><value>स्वचालित ट्रांसक्रिप्शन चल रहा है।</value></data>
+  <data name="RunSummaryTitle" xml:space="preserve"><value>रन सारांश</value></data>
+  <data name="FilesFoundSummary" xml:space="preserve"><value>मिली फ़ाइलें        : {0}</value></data>
+  <data name="FilesSucceededSummary" xml:space="preserve"><value>सफल फ़ाइलें        : {0}</value></data>
+  <data name="FilesFailedSummary" xml:space="preserve"><value>त्रुटि वाली फ़ाइलें : {0}</value></data>
+  <data name="ErrorDetails" xml:space="preserve"><value>त्रुटि विवरण:</value></data>
+  <data name="SummaryCreated" xml:space="preserve"><value>सारांश बनाया गया</value></data>
+  <data name="FatalErrorTitle" xml:space="preserve"><value>गंभीर त्रुटि</value></data>
+  <data name="Completed" xml:space="preserve"><value>पूरा हुआ</value></data>
+  <data name="TranscribedProgress" xml:space="preserve"><value>ट्रांसक्राइब हुआ: {0} में से {1} फ़ाइलें</value></data>
+  <data name="DetectedLanguage" xml:space="preserve"><value>पहचानी गई भाषा: {0}</value></data>
+  <data name="DetectedLanguageCode" xml:space="preserve"><value>पहचाना गया भाषा कोड: {0}</value></data>
+  <data name="Error" xml:space="preserve"><value>त्रुटि</value></data>
+  <data name="FileError" xml:space="preserve"><value>फ़ाइल त्रुटि: {0}</value></data>
+  <data name="ReadingAudioFile" xml:space="preserve"><value>ऑडियो फ़ाइल पढ़ी जा रही है</value></data>
+  <data name="UploadDoneRecognitionRunning" xml:space="preserve"><value>अपलोड पूरा - पहचान जारी है</value></data>
+  <data name="ReceivingRecognizedText" xml:space="preserve"><value>पहचाना गया टेक्स्ट प्राप्त हो रहा है</value></data>
+  <data name="NoTranscriptionDetected" xml:space="preserve"><value>[कोई ट्रांसक्रिप्शन नहीं मिला]</value></data>
+  <data name="TranscriptionSummaryTitle" xml:space="preserve"><value>ट्रांसक्रिप्शन सारांश</value></data>
+  <data name="SummaryFileName" xml:space="preserve"><value>फ़ाइल नाम: {0}</value></data>
+  <data name="SummaryLanguage" xml:space="preserve"><value>भाषा: {0}</value></data>
+  <data name="MessageText" xml:space="preserve"><value>संदेश टेक्स्ट:</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>उपलब्ध नहीं</value></data>
+  <data name="NotAvailableLower" xml:space="preserve"><value>उपलब्ध नहीं</value></data>
+  <data name="NoJsonFound" xml:space="preserve"><value>प्रोग्राम फ़ोल्डर में कोई JSON फ़ाइल नहीं मिली।</value></data>
+  <data name="NoValidGoogleCredentialJsonFound" xml:space="preserve"><value>प्रोग्राम फ़ोल्डर में वैध Google क्रेडेंशियल JSON फ़ाइल नहीं मिली।</value></data>
+  <data name="JsonNotGoogleServiceAccount" xml:space="preserve"><value>JSON फ़ाइल वैध Google service account नहीं है।</value></data>
+  <data name="ProjectIdNotFound" xml:space="preserve"><value>project_id फ़ील्ड नहीं मिला।</value></data>
+  <data name="ProjectIdEmpty" xml:space="preserve"><value>project_id खाली है।</value></data>
+  <data name="InstructionsTitle" xml:space="preserve"><value>निर्देश</value></data>
+  <data name="HelpWhatItDoes" xml:space="preserve"><value>यह प्रोग्राम ऑडियो फ़ाइलों को टेक्स्ट फ़ाइलों में बदलता है।</value></data>
+  <data name="HelpRequiredFiles" xml:space="preserve"><value>प्रोग्राम के उसी फ़ोल्डर में क्या रखना है:</value></data>
+  <data name="HelpCredentialFile" xml:space="preserve"><value>  &lt;Google क्रेडेंशियल&gt;.json</value></data>
+  <data name="HelpPutAudioInWavfiles" xml:space="preserve"><value>कन्वर्ट करने वाली ऑडियो फ़ाइलें wavfiles फ़ोल्डर में रखें।</value></data>
+  <data name="HelpSubfolders" xml:space="preserve"><value>आप उपफ़ोल्डर भी इस्तेमाल कर सकते हैं: वे अपने आप जांचे जाएंगे।</value></data>
+  <data name="HelpSupportedFormats" xml:space="preserve"><value>समर्थित ऑडियो फ़ॉर्मेट:</value></data>
+  <data name="HelpResult" xml:space="preserve"><value>परिणाम:</value></data>
+  <data name="HelpTxtCreated" xml:space="preserve"><value> - हर ऑडियो फ़ाइल के पास एक .txt फ़ाइल बनाई जाती है।</value></data>
+  <data name="HelpSummaryCreated" xml:space="preserve"><value> - प्रोग्राम के पास RiepilogoTrascrizioni.txt भी बनाया जाता है।</value></data>
+  <data name="HelpMultipleJson1" xml:space="preserve"><value>अगर फ़ोल्डर में कई JSON फ़ाइलें हैं, तो प्रोग्राम वह फ़ाइल इस्तेमाल करता है</value></data>
+  <data name="HelpMultipleJson2" xml:space="preserve"><value>जिसमें सही Google क्रेडेंशियल होते हैं।</value></data>
+  <data name="HelpLanguageSelection" xml:space="preserve"><value>भाषा: ऑपरेटिंग सिस्टम से अपने आप चुनी जाती है।</value></data>
+  <data name="HelpLanguageExamples" xml:space="preserve"><value>मजबूर करने के लिए: WavToGoogleAsr.exe --lang hi या WavToGoogleAsr.exe --lang en</value></data>
+  <data name="PressAnyKeyToClose" xml:space="preserve"><value>बंद करने के लिए कोई भी कुंजी दबाएं...</value></data>
+  <data name="InterfaceLanguageLabel" xml:space="preserve"><value>इंटरफ़ेस भाषा</value></data>
+  <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;रद्द करें</value></data>
+  <data name="ConversionCancelledMessage" xml:space="preserve"><value>रूपांतरण रद्द किया गया।</value></data>
+</root>

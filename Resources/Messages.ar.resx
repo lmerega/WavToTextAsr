@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AppTitle" xml:space="preserve"><value>محول الصوت إلى نص</value></data>
+  <data name="ExecutableFolder" xml:space="preserve"><value>مجلد البرنامج: {0}</value></data>
+  <data name="GoogleCredentialsFound" xml:space="preserve"><value>تم العثور على بيانات اعتماد Google: {0}</value></data>
+  <data name="FolderNotFound" xml:space="preserve"><value>لم يتم العثور على المجلد: {0}</value></data>
+  <data name="NoAudioFilesFound" xml:space="preserve"><value>لم يتم العثور على ملفات صوتية للتحويل.</value></data>
+  <data name="PutAudioFilesInFolder" xml:space="preserve"><value>ضع ملفات الصوت في المجلد "{0}" ثم شغل البرنامج مرة أخرى.</value></data>
+  <data name="AudioFilesFound" xml:space="preserve"><value>ملفات الصوت التي تم العثور عليها: {0}</value></data>
+  <data name="AutomaticTranscriptionRunning" xml:space="preserve"><value>جار تنفيذ التفريغ التلقائي.</value></data>
+  <data name="RunSummaryTitle" xml:space="preserve"><value>ملخص التشغيل</value></data>
+  <data name="FilesFoundSummary" xml:space="preserve"><value>الملفات الموجودة     : {0}</value></data>
+  <data name="FilesSucceededSummary" xml:space="preserve"><value>الملفات الناجحة      : {0}</value></data>
+  <data name="FilesFailedSummary" xml:space="preserve"><value>الملفات ذات الأخطاء  : {0}</value></data>
+  <data name="ErrorDetails" xml:space="preserve"><value>تفاصيل الأخطاء:</value></data>
+  <data name="SummaryCreated" xml:space="preserve"><value>تم إنشاء الملخص</value></data>
+  <data name="FatalErrorTitle" xml:space="preserve"><value>خطأ فادح</value></data>
+  <data name="Completed" xml:space="preserve"><value>مكتمل</value></data>
+  <data name="TranscribedProgress" xml:space="preserve"><value>تم التفريغ: {0} من {1} ملفات</value></data>
+  <data name="DetectedLanguage" xml:space="preserve"><value>اللغة المكتشفة: {0}</value></data>
+  <data name="DetectedLanguageCode" xml:space="preserve"><value>رمز اللغة المكتشف: {0}</value></data>
+  <data name="Error" xml:space="preserve"><value>خطأ</value></data>
+  <data name="FileError" xml:space="preserve"><value>خطأ في الملف: {0}</value></data>
+  <data name="ReadingAudioFile" xml:space="preserve"><value>جار قراءة ملف الصوت</value></data>
+  <data name="UploadDoneRecognitionRunning" xml:space="preserve"><value>اكتمل الرفع - جار التعرف</value></data>
+  <data name="ReceivingRecognizedText" xml:space="preserve"><value>جار استلام النص المتعرف عليه</value></data>
+  <data name="NoTranscriptionDetected" xml:space="preserve"><value>[لم يتم اكتشاف أي تفريغ]</value></data>
+  <data name="TranscriptionSummaryTitle" xml:space="preserve"><value>ملخص التفريغات</value></data>
+  <data name="SummaryFileName" xml:space="preserve"><value>اسم الملف: {0}</value></data>
+  <data name="SummaryLanguage" xml:space="preserve"><value>اللغة: {0}</value></data>
+  <data name="MessageText" xml:space="preserve"><value>نص الرسالة:</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>غير متوفر</value></data>
+  <data name="NotAvailableLower" xml:space="preserve"><value>غير متوفر</value></data>
+  <data name="NoJsonFound" xml:space="preserve"><value>لم يتم العثور على ملف JSON في مجلد البرنامج.</value></data>
+  <data name="NoValidGoogleCredentialJsonFound" xml:space="preserve"><value>لم يتم العثور على ملف JSON صالح لبيانات اعتماد Google في مجلد البرنامج.</value></data>
+  <data name="JsonNotGoogleServiceAccount" xml:space="preserve"><value>ملف JSON ليس حساب خدمة Google صالحا.</value></data>
+  <data name="ProjectIdNotFound" xml:space="preserve"><value>لم يتم العثور على الحقل project_id.</value></data>
+  <data name="ProjectIdEmpty" xml:space="preserve"><value>project_id فارغ.</value></data>
+  <data name="InstructionsTitle" xml:space="preserve"><value>التعليمات</value></data>
+  <data name="HelpWhatItDoes" xml:space="preserve"><value>هذا البرنامج يحول ملفات الصوت إلى ملفات نصية.</value></data>
+  <data name="HelpRequiredFiles" xml:space="preserve"><value>ما يجب وضعه في نفس مجلد البرنامج:</value></data>
+  <data name="HelpCredentialFile" xml:space="preserve"><value>  &lt;بيانات اعتماد Google&gt;.json</value></data>
+  <data name="HelpPutAudioInWavfiles" xml:space="preserve"><value>ضع ملفات الصوت المراد تحويلها داخل مجلد wavfiles.</value></data>
+  <data name="HelpSubfolders" xml:space="preserve"><value>يمكنك أيضا استخدام مجلدات فرعية: سيتم فحصها تلقائيا.</value></data>
+  <data name="HelpSupportedFormats" xml:space="preserve"><value>تنسيقات الصوت المدعومة:</value></data>
+  <data name="HelpResult" xml:space="preserve"><value>النتيجة:</value></data>
+  <data name="HelpTxtCreated" xml:space="preserve"><value> - يتم إنشاء ملف .txt بجانب كل ملف صوتي.</value></data>
+  <data name="HelpSummaryCreated" xml:space="preserve"><value> - يتم أيضا إنشاء RiepilogoTrascrizioni.txt بجانب البرنامج.</value></data>
+  <data name="HelpMultipleJson1" xml:space="preserve"><value>إذا كان المجلد يحتوي على أكثر من ملف JSON، يستخدم البرنامج الملف</value></data>
+  <data name="HelpMultipleJson2" xml:space="preserve"><value>الذي يحتوي على بيانات اعتماد Google الصحيحة.</value></data>
+  <data name="HelpLanguageSelection" xml:space="preserve"><value>اللغة: يتم اختيارها تلقائيا من نظام التشغيل.</value></data>
+  <data name="HelpLanguageExamples" xml:space="preserve"><value>للفرض: WavToGoogleAsr.exe --lang ar أو WavToGoogleAsr.exe --lang en</value></data>
+  <data name="PressAnyKeyToClose" xml:space="preserve"><value>اضغط على أي مفتاح للإغلاق...</value></data>
+  <data name="InterfaceLanguageLabel" xml:space="preserve"><value>لغة الواجهة</value></data>
+  <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;إلغاء</value></data>
+  <data name="ConversionCancelledMessage" xml:space="preserve"><value>تم إلغاء التحويل.</value></data>
+</root>

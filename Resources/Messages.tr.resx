@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AppTitle" xml:space="preserve"><value>Sesten metne donusturucu</value></data>
+  <data name="ExecutableFolder" xml:space="preserve"><value>Program klasoru: {0}</value></data>
+  <data name="GoogleCredentialsFound" xml:space="preserve"><value>Google kimlik bilgileri bulundu: {0}</value></data>
+  <data name="FolderNotFound" xml:space="preserve"><value>Klasor bulunamadi: {0}</value></data>
+  <data name="NoAudioFilesFound" xml:space="preserve"><value>Donusturulecek ses dosyasi bulunamadi.</value></data>
+  <data name="PutAudioFilesInFolder" xml:space="preserve"><value>Ses dosyalarini "{0}" klasorune koyun ve programi yeniden calistirin.</value></data>
+  <data name="AudioFilesFound" xml:space="preserve"><value>Bulunan ses dosyalari: {0}</value></data>
+  <data name="AutomaticTranscriptionRunning" xml:space="preserve"><value>Otomatik metne dokme calisiyor.</value></data>
+  <data name="RunSummaryTitle" xml:space="preserve"><value>CALISTIRMA OZETI</value></data>
+  <data name="FilesFoundSummary" xml:space="preserve"><value>Bulunan dosyalar    : {0}</value></data>
+  <data name="FilesSucceededSummary" xml:space="preserve"><value>Basarili dosyalar   : {0}</value></data>
+  <data name="FilesFailedSummary" xml:space="preserve"><value>Hatali dosyalar     : {0}</value></data>
+  <data name="ErrorDetails" xml:space="preserve"><value>Hata ayrintilari:</value></data>
+  <data name="SummaryCreated" xml:space="preserve"><value>Ozet olusturuldu</value></data>
+  <data name="FatalErrorTitle" xml:space="preserve"><value>ONEMLI HATA</value></data>
+  <data name="Completed" xml:space="preserve"><value>Tamamlandi</value></data>
+  <data name="TranscribedProgress" xml:space="preserve"><value>Metne dokuldu: {0}/{1} dosya</value></data>
+  <data name="DetectedLanguage" xml:space="preserve"><value>Algilanan dil: {0}</value></data>
+  <data name="DetectedLanguageCode" xml:space="preserve"><value>Algilanan dil kodu: {0}</value></data>
+  <data name="Error" xml:space="preserve"><value>Hata</value></data>
+  <data name="FileError" xml:space="preserve"><value>Dosya hatasi: {0}</value></data>
+  <data name="ReadingAudioFile" xml:space="preserve"><value>Ses dosyasi okunuyor</value></data>
+  <data name="UploadDoneRecognitionRunning" xml:space="preserve"><value>Yukleme tamamlandi - tanima suruyor</value></data>
+  <data name="ReceivingRecognizedText" xml:space="preserve"><value>Taninmis metin aliniyor</value></data>
+  <data name="NoTranscriptionDetected" xml:space="preserve"><value>[METIN ALGILANMADI]</value></data>
+  <data name="TranscriptionSummaryTitle" xml:space="preserve"><value>METNE DOKME OZETI</value></data>
+  <data name="SummaryFileName" xml:space="preserve"><value>Dosya adi: {0}</value></data>
+  <data name="SummaryLanguage" xml:space="preserve"><value>Dil: {0}</value></data>
+  <data name="MessageText" xml:space="preserve"><value>Mesaj metni:</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>Kullanilamaz</value></data>
+  <data name="NotAvailableLower" xml:space="preserve"><value>kullanilamaz</value></data>
+  <data name="NoJsonFound" xml:space="preserve"><value>Program klasorunde JSON dosyasi bulunamadi.</value></data>
+  <data name="NoValidGoogleCredentialJsonFound" xml:space="preserve"><value>Program klasorunde gecerli Google kimlik bilgileri JSON dosyasi bulunamadi.</value></data>
+  <data name="JsonNotGoogleServiceAccount" xml:space="preserve"><value>JSON dosyasi gecerli bir Google servis hesabi degil.</value></data>
+  <data name="ProjectIdNotFound" xml:space="preserve"><value>project_id alani bulunamadi.</value></data>
+  <data name="ProjectIdEmpty" xml:space="preserve"><value>project_id bos.</value></data>
+  <data name="InstructionsTitle" xml:space="preserve"><value>TALIMATLAR</value></data>
+  <data name="HelpWhatItDoes" xml:space="preserve"><value>Bu program ses dosyalarini metin dosyalarina donusturur.</value></data>
+  <data name="HelpRequiredFiles" xml:space="preserve"><value>Programla ayni klasore koymaniz gerekenler:</value></data>
+  <data name="HelpCredentialFile" xml:space="preserve"><value>  &lt;Google kimlik bilgileri&gt;.json</value></data>
+  <data name="HelpPutAudioInWavfiles" xml:space="preserve"><value>Donusturulecek sesleri wavfiles klasorune koyun.</value></data>
+  <data name="HelpSubfolders" xml:space="preserve"><value>Alt klasorleri de kullanabilirsiniz: otomatik kontrol edilir.</value></data>
+  <data name="HelpSupportedFormats" xml:space="preserve"><value>Desteklenen ses bicimleri:</value></data>
+  <data name="HelpResult" xml:space="preserve"><value>Sonuc:</value></data>
+  <data name="HelpTxtCreated" xml:space="preserve"><value> - Her ses dosyasinin yaninda bir .txt dosyasi olusturulur.</value></data>
+  <data name="HelpSummaryCreated" xml:space="preserve"><value> - Programin yaninda RiepilogoTrascrizioni.txt de olusturulur.</value></data>
+  <data name="HelpMultipleJson1" xml:space="preserve"><value>Klasorde birden fazla JSON varsa, program dogru Google kimlik bilgilerini</value></data>
+  <data name="HelpMultipleJson2" xml:space="preserve"><value>iceren dosyayi kullanir.</value></data>
+  <data name="HelpLanguageSelection" xml:space="preserve"><value>Dil: isletim sisteminden otomatik secilir.</value></data>
+  <data name="HelpLanguageExamples" xml:space="preserve"><value>Zorlamak icin: WavToGoogleAsr.exe --lang tr veya WavToGoogleAsr.exe --lang en</value></data>
+  <data name="PressAnyKeyToClose" xml:space="preserve"><value>Kapatmak icin bir tusa basin...</value></data>
+  <data name="InterfaceLanguageLabel" xml:space="preserve"><value>Arayüz dili</value></data>
+  <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;İptal</value></data>
+  <data name="ConversionCancelledMessage" xml:space="preserve"><value>Dönüştürme iptal edildi.</value></data>
+</root>

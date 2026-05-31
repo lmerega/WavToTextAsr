@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AppTitle" xml:space="preserve"><value>Audio naar tekst converter</value></data>
+  <data name="ExecutableFolder" xml:space="preserve"><value>Map van het programma: {0}</value></data>
+  <data name="GoogleCredentialsFound" xml:space="preserve"><value>Google-inloggegevens gevonden: {0}</value></data>
+  <data name="FolderNotFound" xml:space="preserve"><value>Map niet gevonden: {0}</value></data>
+  <data name="NoAudioFilesFound" xml:space="preserve"><value>Geen audiobestanden gevonden om te converteren.</value></data>
+  <data name="PutAudioFilesInFolder" xml:space="preserve"><value>Zet de audiobestanden in de map "{0}" en start het programma opnieuw.</value></data>
+  <data name="AudioFilesFound" xml:space="preserve"><value>Audiobestanden gevonden: {0}</value></data>
+  <data name="AutomaticTranscriptionRunning" xml:space="preserve"><value>Automatische transcriptie wordt uitgevoerd.</value></data>
+  <data name="RunSummaryTitle" xml:space="preserve"><value>UITVOERINGSOVERZICHT</value></data>
+  <data name="FilesFoundSummary" xml:space="preserve"><value>Bestanden gevonden   : {0}</value></data>
+  <data name="FilesSucceededSummary" xml:space="preserve"><value>Bestanden verwerkt   : {0}</value></data>
+  <data name="FilesFailedSummary" xml:space="preserve"><value>Bestanden met fouten : {0}</value></data>
+  <data name="ErrorDetails" xml:space="preserve"><value>Foutdetails:</value></data>
+  <data name="SummaryCreated" xml:space="preserve"><value>Overzicht gemaakt</value></data>
+  <data name="FatalErrorTitle" xml:space="preserve"><value>FATALE FOUT</value></data>
+  <data name="Completed" xml:space="preserve"><value>Voltooid</value></data>
+  <data name="TranscribedProgress" xml:space="preserve"><value>Getranscribeerd: {0} van {1} bestanden</value></data>
+  <data name="DetectedLanguage" xml:space="preserve"><value>Gedetecteerde taal: {0}</value></data>
+  <data name="DetectedLanguageCode" xml:space="preserve"><value>Gedetecteerde taalcode: {0}</value></data>
+  <data name="Error" xml:space="preserve"><value>Fout</value></data>
+  <data name="FileError" xml:space="preserve"><value>Bestandsfout: {0}</value></data>
+  <data name="ReadingAudioFile" xml:space="preserve"><value>Audiobestand lezen</value></data>
+  <data name="UploadDoneRecognitionRunning" xml:space="preserve"><value>Upload voltooid - herkenning bezig</value></data>
+  <data name="ReceivingRecognizedText" xml:space="preserve"><value>Herkende tekst ontvangen</value></data>
+  <data name="NoTranscriptionDetected" xml:space="preserve"><value>[GEEN TRANSCRIPTIE GEDETECTEERD]</value></data>
+  <data name="TranscriptionSummaryTitle" xml:space="preserve"><value>TRANSCRIPTIEOVERZICHT</value></data>
+  <data name="SummaryFileName" xml:space="preserve"><value>Bestandsnaam: {0}</value></data>
+  <data name="SummaryLanguage" xml:space="preserve"><value>Taal: {0}</value></data>
+  <data name="MessageText" xml:space="preserve"><value>Berichttekst:</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>Niet beschikbaar</value></data>
+  <data name="NotAvailableLower" xml:space="preserve"><value>niet beschikbaar</value></data>
+  <data name="NoJsonFound" xml:space="preserve"><value>Geen JSON-bestand gevonden in de programmamap.</value></data>
+  <data name="NoValidGoogleCredentialJsonFound" xml:space="preserve"><value>Geen geldig JSON-bestand met Google-inloggegevens gevonden in de programmamap.</value></data>
+  <data name="JsonNotGoogleServiceAccount" xml:space="preserve"><value>Het JSON-bestand is geen geldig Google-serviceaccount.</value></data>
+  <data name="ProjectIdNotFound" xml:space="preserve"><value>Veld project_id niet gevonden.</value></data>
+  <data name="ProjectIdEmpty" xml:space="preserve"><value>project_id is leeg.</value></data>
+  <data name="InstructionsTitle" xml:space="preserve"><value>INSTRUCTIES</value></data>
+  <data name="HelpWhatItDoes" xml:space="preserve"><value>Dit programma zet audiobestanden om naar tekstbestanden.</value></data>
+  <data name="HelpRequiredFiles" xml:space="preserve"><value>Wat in dezelfde map als het programma moet staan:</value></data>
+  <data name="HelpCredentialFile" xml:space="preserve"><value>  &lt;Google-inloggegevens&gt;.json</value></data>
+  <data name="HelpPutAudioInWavfiles" xml:space="preserve"><value>Zet de te converteren audio in de map wavfiles.</value></data>
+  <data name="HelpSubfolders" xml:space="preserve"><value>U kunt ook submappen gebruiken: die worden automatisch gecontroleerd.</value></data>
+  <data name="HelpSupportedFormats" xml:space="preserve"><value>Ondersteunde audioformaten:</value></data>
+  <data name="HelpResult" xml:space="preserve"><value>Resultaat:</value></data>
+  <data name="HelpTxtCreated" xml:space="preserve"><value> - Naast elk audiobestand wordt een .txt-bestand gemaakt.</value></data>
+  <data name="HelpSummaryCreated" xml:space="preserve"><value> - Naast het programma wordt ook RiepilogoTrascrizioni.txt gemaakt.</value></data>
+  <data name="HelpMultipleJson1" xml:space="preserve"><value>Als de map meerdere JSON-bestanden bevat, gebruikt het programma het bestand</value></data>
+  <data name="HelpMultipleJson2" xml:space="preserve"><value>met de juiste Google-inloggegevens.</value></data>
+  <data name="HelpLanguageSelection" xml:space="preserve"><value>Taal: automatisch gekozen op basis van het besturingssysteem.</value></data>
+  <data name="HelpLanguageExamples" xml:space="preserve"><value>Forceren: WavToGoogleAsr.exe --lang nl of WavToGoogleAsr.exe --lang en</value></data>
+  <data name="PressAnyKeyToClose" xml:space="preserve"><value>Druk op een toets om te sluiten...</value></data>
+  <data name="InterfaceLanguageLabel" xml:space="preserve"><value>Interfacetaal</value></data>
+  <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;Annuleren</value></data>
+  <data name="ConversionCancelledMessage" xml:space="preserve"><value>Conversie geannuleerd.</value></data>
+</root>

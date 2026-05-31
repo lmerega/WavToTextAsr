@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+
+    <TargetFramework>net8.0-windows</TargetFramework>
+
+    <UseWindowsForms>true</UseWindowsForms>
+
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <PublishSingleFile>true</PublishSingleFile>
+
+    <SelfContained>true</SelfContained>
+
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+
+    <PublishTrimmed>false</PublishTrimmed>
+
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+
+    <InvariantGlobalization>false</InvariantGlobalization>
+
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0</InformationalVersion>
+
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Cloud.Speech.V2" Version="1.8.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.32.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Chirp3Benchmark\**\*.cs" />
+    <None Include="Chirp3Benchmark\**\*" />
+  </ItemGroup>
+
+</Project>

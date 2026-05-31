@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AppTitle" xml:space="preserve"><value>音声テキスト変換ツール</value></data>
+  <data name="ExecutableFolder" xml:space="preserve"><value>実行ファイルのフォルダー: {0}</value></data>
+  <data name="GoogleCredentialsFound" xml:space="preserve"><value>Google 認証情報が見つかりました: {0}</value></data>
+  <data name="FolderNotFound" xml:space="preserve"><value>フォルダーが見つかりません: {0}</value></data>
+  <data name="NoAudioFilesFound" xml:space="preserve"><value>変換する音声ファイルが見つかりません。</value></data>
+  <data name="PutAudioFilesInFolder" xml:space="preserve"><value>音声ファイルを "{0}" フォルダーに入れて、もう一度実行してください。</value></data>
+  <data name="AudioFilesFound" xml:space="preserve"><value>見つかった音声ファイル: {0}</value></data>
+  <data name="AutomaticTranscriptionRunning" xml:space="preserve"><value>自動文字起こしを実行中です。</value></data>
+  <data name="RunSummaryTitle" xml:space="preserve"><value>実行結果</value></data>
+  <data name="FilesFoundSummary" xml:space="preserve"><value>検出ファイル数    : {0}</value></data>
+  <data name="FilesSucceededSummary" xml:space="preserve"><value>成功ファイル数    : {0}</value></data>
+  <data name="FilesFailedSummary" xml:space="preserve"><value>エラーファイル数  : {0}</value></data>
+  <data name="ErrorDetails" xml:space="preserve"><value>エラー詳細:</value></data>
+  <data name="SummaryCreated" xml:space="preserve"><value>概要を作成しました</value></data>
+  <data name="FatalErrorTitle" xml:space="preserve"><value>致命的なエラー</value></data>
+  <data name="Completed" xml:space="preserve"><value>完了</value></data>
+  <data name="TranscribedProgress" xml:space="preserve"><value>文字起こし済み: {0}/{1} ファイル</value></data>
+  <data name="DetectedLanguage" xml:space="preserve"><value>検出された言語: {0}</value></data>
+  <data name="DetectedLanguageCode" xml:space="preserve"><value>検出された言語コード: {0}</value></data>
+  <data name="Error" xml:space="preserve"><value>エラー</value></data>
+  <data name="FileError" xml:space="preserve"><value>ファイルエラー: {0}</value></data>
+  <data name="ReadingAudioFile" xml:space="preserve"><value>音声ファイルを読み込み中</value></data>
+  <data name="UploadDoneRecognitionRunning" xml:space="preserve"><value>アップロード完了 - 認識中</value></data>
+  <data name="ReceivingRecognizedText" xml:space="preserve"><value>認識されたテキストを受信中</value></data>
+  <data name="NoTranscriptionDetected" xml:space="preserve"><value>[文字起こしは検出されませんでした]</value></data>
+  <data name="TranscriptionSummaryTitle" xml:space="preserve"><value>文字起こし概要</value></data>
+  <data name="SummaryFileName" xml:space="preserve"><value>ファイル名: {0}</value></data>
+  <data name="SummaryLanguage" xml:space="preserve"><value>言語: {0}</value></data>
+  <data name="MessageText" xml:space="preserve"><value>メッセージ本文:</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>利用できません</value></data>
+  <data name="NotAvailableLower" xml:space="preserve"><value>利用できません</value></data>
+  <data name="NoJsonFound" xml:space="preserve"><value>実行ファイルのフォルダーに JSON ファイルが見つかりません。</value></data>
+  <data name="NoValidGoogleCredentialJsonFound" xml:space="preserve"><value>有効な Google 認証情報 JSON ファイルが見つかりません。</value></data>
+  <data name="JsonNotGoogleServiceAccount" xml:space="preserve"><value>JSON ファイルは有効な Google サービスアカウントではありません。</value></data>
+  <data name="ProjectIdNotFound" xml:space="preserve"><value>project_id フィールドが見つかりません。</value></data>
+  <data name="ProjectIdEmpty" xml:space="preserve"><value>project_id が空です。</value></data>
+  <data name="InstructionsTitle" xml:space="preserve"><value>使い方</value></data>
+  <data name="HelpWhatItDoes" xml:space="preserve"><value>このプログラムは音声ファイルをテキストファイルに変換します。</value></data>
+  <data name="HelpRequiredFiles" xml:space="preserve"><value>プログラムと同じフォルダーに置くもの:</value></data>
+  <data name="HelpCredentialFile" xml:space="preserve"><value>  &lt;Google 認証情報&gt;.json</value></data>
+  <data name="HelpPutAudioInWavfiles" xml:space="preserve"><value>変換する音声を wavfiles フォルダーに入れてください。</value></data>
+  <data name="HelpSubfolders" xml:space="preserve"><value>サブフォルダーも使用できます。自動的に確認されます。</value></data>
+  <data name="HelpSupportedFormats" xml:space="preserve"><value>対応音声形式:</value></data>
+  <data name="HelpResult" xml:space="preserve"><value>結果:</value></data>
+  <data name="HelpTxtCreated" xml:space="preserve"><value> - 各音声ファイルの隣に .txt ファイルが作成されます。</value></data>
+  <data name="HelpSummaryCreated" xml:space="preserve"><value> - プログラムの隣に RiepilogoTrascrizioni.txt も作成されます。</value></data>
+  <data name="HelpMultipleJson1" xml:space="preserve"><value>フォルダーに複数の JSON ファイルがある場合、プログラムは</value></data>
+  <data name="HelpMultipleJson2" xml:space="preserve"><value>正しい Google 認証情報を含むものを使用します。</value></data>
+  <data name="HelpLanguageSelection" xml:space="preserve"><value>言語: オペレーティングシステムから自動選択されます。</value></data>
+  <data name="HelpLanguageExamples" xml:space="preserve"><value>指定する場合: WavToGoogleAsr.exe --lang ja または WavToGoogleAsr.exe --lang en</value></data>
+  <data name="PressAnyKeyToClose" xml:space="preserve"><value>閉じるには任意のキーを押してください...</value></data>
+  <data name="InterfaceLanguageLabel" xml:space="preserve"><value>インターフェース言語</value></data>
+  <data name="CancelButtonShortcut" xml:space="preserve"><value>キャンセル(&amp;C)</value></data>
+  <data name="ConversionCancelledMessage" xml:space="preserve"><value>変換がキャンセルされました。</value></data>
+</root>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AppTitle" xml:space="preserve"><value>Convertisseur audio en texte</value></data>
+  <data name="ExecutableFolder" xml:space="preserve"><value>Dossier de l'executable : {0}</value></data>
+  <data name="GoogleCredentialsFound" xml:space="preserve"><value>Identifiants Google trouves : {0}</value></data>
+  <data name="FolderNotFound" xml:space="preserve"><value>Dossier introuvable : {0}</value></data>
+  <data name="NoAudioFilesFound" xml:space="preserve"><value>Aucun fichier audio a convertir n'a ete trouve.</value></data>
+  <data name="PutAudioFilesInFolder" xml:space="preserve"><value>Placez les fichiers audio dans le dossier "{0}" et relancez le programme.</value></data>
+  <data name="AudioFilesFound" xml:space="preserve"><value>Fichiers audio trouves : {0}</value></data>
+  <data name="AutomaticTranscriptionRunning" xml:space="preserve"><value>Transcription automatique en cours.</value></data>
+  <data name="RunSummaryTitle" xml:space="preserve"><value>RESUME DE L'EXECUTION</value></data>
+  <data name="FilesFoundSummary" xml:space="preserve"><value>Fichiers trouves       : {0}</value></data>
+  <data name="FilesSucceededSummary" xml:space="preserve"><value>Fichiers traites OK    : {0}</value></data>
+  <data name="FilesFailedSummary" xml:space="preserve"><value>Fichiers en erreur     : {0}</value></data>
+  <data name="ErrorDetails" xml:space="preserve"><value>Detail des erreurs :</value></data>
+  <data name="SummaryCreated" xml:space="preserve"><value>Resume cree</value></data>
+  <data name="FatalErrorTitle" xml:space="preserve"><value>ERREUR FATALE</value></data>
+  <data name="Completed" xml:space="preserve"><value>Termine</value></data>
+  <data name="TranscribedProgress" xml:space="preserve"><value>Transcrits : {0} fichiers sur {1}</value></data>
+  <data name="DetectedLanguage" xml:space="preserve"><value>Langue detectee : {0}</value></data>
+  <data name="DetectedLanguageCode" xml:space="preserve"><value>Code de langue detecte : {0}</value></data>
+  <data name="Error" xml:space="preserve"><value>Erreur</value></data>
+  <data name="FileError" xml:space="preserve"><value>Erreur fichier : {0}</value></data>
+  <data name="ReadingAudioFile" xml:space="preserve"><value>Lecture du fichier audio</value></data>
+  <data name="UploadDoneRecognitionRunning" xml:space="preserve"><value>Envoi termine - reconnaissance en cours</value></data>
+  <data name="ReceivingRecognizedText" xml:space="preserve"><value>Reception du texte reconnu</value></data>
+  <data name="NoTranscriptionDetected" xml:space="preserve"><value>[AUCUNE TRANSCRIPTION DETECTEE]</value></data>
+  <data name="TranscriptionSummaryTitle" xml:space="preserve"><value>RESUME DES TRANSCRIPTIONS</value></data>
+  <data name="SummaryFileName" xml:space="preserve"><value>Nom du fichier : {0}</value></data>
+  <data name="SummaryLanguage" xml:space="preserve"><value>Langue : {0}</value></data>
+  <data name="MessageText" xml:space="preserve"><value>Texte du message :</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>Non disponible</value></data>
+  <data name="NotAvailableLower" xml:space="preserve"><value>non disponible</value></data>
+  <data name="NoJsonFound" xml:space="preserve"><value>Aucun fichier JSON n'a ete trouve dans le dossier de l'executable.</value></data>
+  <data name="NoValidGoogleCredentialJsonFound" xml:space="preserve"><value>Aucun fichier JSON d'identifiants Google valide n'a ete trouve dans le dossier de l'executable.</value></data>
+  <data name="JsonNotGoogleServiceAccount" xml:space="preserve"><value>Le fichier JSON n'est pas un compte de service Google valide.</value></data>
+  <data name="ProjectIdNotFound" xml:space="preserve"><value>Champ project_id introuvable.</value></data>
+  <data name="ProjectIdEmpty" xml:space="preserve"><value>project_id est vide.</value></data>
+  <data name="InstructionsTitle" xml:space="preserve"><value>INSTRUCTIONS</value></data>
+  <data name="HelpWhatItDoes" xml:space="preserve"><value>Ce programme convertit des fichiers audio en fichiers texte.</value></data>
+  <data name="HelpRequiredFiles" xml:space="preserve"><value>Ce qu'il faut placer dans le meme dossier que le programme :</value></data>
+  <data name="HelpCredentialFile" xml:space="preserve"><value>  &lt;identifiants Google&gt;.json</value></data>
+  <data name="HelpPutAudioInWavfiles" xml:space="preserve"><value>Placez les fichiers audio a convertir dans le dossier wavfiles.</value></data>
+  <data name="HelpSubfolders" xml:space="preserve"><value>Vous pouvez aussi utiliser des sous-dossiers : ils seront controles automatiquement.</value></data>
+  <data name="HelpSupportedFormats" xml:space="preserve"><value>Formats audio pris en charge :</value></data>
+  <data name="HelpResult" xml:space="preserve"><value>Resultat :</value></data>
+  <data name="HelpTxtCreated" xml:space="preserve"><value> - Un fichier .txt est cree a cote de chaque fichier audio.</value></data>
+  <data name="HelpSummaryCreated" xml:space="preserve"><value> - RiepilogoTrascrizioni.txt est aussi cree a cote du programme.</value></data>
+  <data name="HelpMultipleJson1" xml:space="preserve"><value>Si le dossier contient plusieurs fichiers JSON, le programme utilise celui</value></data>
+  <data name="HelpMultipleJson2" xml:space="preserve"><value>qui contient les bons identifiants Google.</value></data>
+  <data name="HelpLanguageSelection" xml:space="preserve"><value>Langue : choisie automatiquement depuis le systeme d'exploitation.</value></data>
+  <data name="HelpLanguageExamples" xml:space="preserve"><value>Pour la forcer : WavToGoogleAsr.exe --lang fr ou WavToGoogleAsr.exe --lang en</value></data>
+  <data name="PressAnyKeyToClose" xml:space="preserve"><value>Appuyez sur une touche pour fermer...</value></data>
+  <data name="InterfaceLanguageLabel" xml:space="preserve"><value>Langue de l'interface</value></data>
+  <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;Annuler</value></data>
+  <data name="ConversionCancelledMessage" xml:space="preserve"><value>Conversion annulée.</value></data>
+</root>
