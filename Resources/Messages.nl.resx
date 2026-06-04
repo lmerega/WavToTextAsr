@@ -58,4 +58,18 @@
   <data name="InterfaceLanguageLabel" xml:space="preserve"><value>Interfacetaal</value></data>
   <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;Annuleren</value></data>
   <data name="ConversionCancelledMessage" xml:space="preserve"><value>Conversie geannuleerd.</value></data>
-</root>
+
+  <data name="CredentialFileLabel" xml:space="preserve"><value>Google-inloggegevens</value></data>
+  <data name="AudioFolderLabel" xml:space="preserve"><value>Audiomap</value></data>
+  <data name="BrowseButtonShortcut" xml:space="preserve"><value>&amp;Bladeren...</value></data>
+  <data name="RefreshButtonShortcut" xml:space="preserve"><value>&amp;Vernieuwen</value></data>
+  <data name="ConvertButtonShortcut" xml:space="preserve"><value>&amp;Converteren</value></data>
+  <data name="FilesReadyLabel" xml:space="preserve"><value>Audiobestanden gereed: {0}</value></data>
+  <data name="JsonFileFilter" xml:space="preserve"><value>JSON-bestanden (*.json)|*.json|Alle bestanden (*.*)|*.*</value></data>
+  <data name="CredentialMissingMessage" xml:space="preserve"><value>Selecteer een geldig JSON-bestand met Google-inloggegevens.</value></data>
+  <data name="AudioFolderMissingMessage" xml:space="preserve"><value>Selecteer een geldige audiomap.</value></data>
+  <data name="ConversionCompletedMessage" xml:space="preserve"><value>Conversie voltooid.</value></data>
+  <data name="HelpFormCredential" xml:space="preserve"><value>Kies het JSON-bestand met Google-inloggegevens met de knop Bladeren. Het mag overal op de computer staan.</value></data>
+  <data name="HelpFormAudioFolder" xml:space="preserve"><value>Kies de map die de audiobestanden bevat. Dat mag elke map zijn; submappen worden automatisch gescand.</value></data>
+  <data name="HelpFormConvert" xml:space="preserve"><value>Controleer de bestandslijst en klik daarna op Converteren. Het log toont de voortgang en fouten.</value></data></root>
+

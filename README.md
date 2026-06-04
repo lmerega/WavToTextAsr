@@ -6,6 +6,8 @@
 
 WavToTextAsr is a Windows desktop tool that converts audio files into text files using Google Cloud Speech-to-Text.
 
+See [CHANGELOG.md](CHANGELOG.md) for release history.
+
 It provides a small form where the user can choose the interface language, select the Google credentials JSON file, select the folder that contains the audio files, review the files found, read the instructions, and start the conversion.
 
 The application is built for **Windows 64-bit only**. The project targets `win-x64`, so the published executable is intended for 64-bit Windows machines.
@@ -41,7 +43,7 @@ wavfiles\
 
 If the program finds more than one `.json` file, it automatically uses the one that contains valid Google service account credentials.
 
-The application remembers the last selected language, theme, credentials file, and audio folder in the user's AppData folder.
+The application remembers the last selected language, credentials file, and audio folder in the user's AppData folder.
 
 ## Supported Audio Files
 
@@ -50,6 +52,8 @@ The application remembers the last selected language, theme, credentials file, a
 ```
 
 For each audio file, the program creates a `.txt` file in the same folder.
+
+For `.wav` files, the application also handles PCM variants that may need normalization before they are sent to Google Speech-to-Text, including higher bit depth PCM files that still play correctly in standard media players.
 
 It also creates a global summary file next to the executable. The file name includes the date and time of the conversion so that each run produces a separate file:
 
@@ -143,9 +147,7 @@ While a conversion is running, the **Convert** button changes to **Cancel**. Cli
 
 The form includes a `?` button that opens the user instructions in the selected language.
 
-## Theme And Shortcuts
-
-The form has a dark theme toggle. The preference is saved automatically.
+## Shortcuts
 
 Buttons include keyboard mnemonics:
 
@@ -218,6 +220,8 @@ publish\WavToGoogleAsr.exe
 ```
 
 The project is configured as self-contained and single-file with Brotli compression, so the published `.exe` includes the .NET runtime and runs on Windows x64 without any additional install. The executable also has a custom application icon.
+
+The publish settings also extract localized resource assemblies at runtime, so changing the interface language updates labels and button captions correctly in the published executable.
 
 ## Support
 

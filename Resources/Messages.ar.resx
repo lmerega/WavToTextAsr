@@ -58,4 +58,18 @@
   <data name="InterfaceLanguageLabel" xml:space="preserve"><value>لغة الواجهة</value></data>
   <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;إلغاء</value></data>
   <data name="ConversionCancelledMessage" xml:space="preserve"><value>تم إلغاء التحويل.</value></data>
-</root>
+
+  <data name="CredentialFileLabel" xml:space="preserve"><value>بيانات اعتماد Google</value></data>
+  <data name="AudioFolderLabel" xml:space="preserve"><value>مجلد الصوت</value></data>
+  <data name="BrowseButtonShortcut" xml:space="preserve"><value>&amp;استعراض...</value></data>
+  <data name="RefreshButtonShortcut" xml:space="preserve"><value>&amp;تحديث</value></data>
+  <data name="ConvertButtonShortcut" xml:space="preserve"><value>&amp;تحويل</value></data>
+  <data name="FilesReadyLabel" xml:space="preserve"><value>ملفات الصوت الجاهزة: {0}</value></data>
+  <data name="JsonFileFilter" xml:space="preserve"><value>ملفات JSON (*.json)|*.json|كل الملفات (*.*)|*.*</value></data>
+  <data name="CredentialMissingMessage" xml:space="preserve"><value>حدد ملف JSON صالحا لبيانات اعتماد Google.</value></data>
+  <data name="AudioFolderMissingMessage" xml:space="preserve"><value>حدد مجلد صوت صالحا.</value></data>
+  <data name="ConversionCompletedMessage" xml:space="preserve"><value>اكتمل التحويل.</value></data>
+  <data name="HelpFormCredential" xml:space="preserve"><value>اختر ملف JSON لبيانات اعتماد Google باستخدام زر استعراض. يمكن أن يكون في أي مكان على الكمبيوتر.</value></data>
+  <data name="HelpFormAudioFolder" xml:space="preserve"><value>اختر المجلد الذي يحتوي على ملفات الصوت. يمكن أن يكون أي مجلد؛ يتم فحص المجلدات الفرعية تلقائيا.</value></data>
+  <data name="HelpFormConvert" xml:space="preserve"><value>راجع قائمة الملفات ثم اضغط تحويل. يعرض السجل التقدم والأخطاء.</value></data></root>
+

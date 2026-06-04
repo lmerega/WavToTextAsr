@@ -58,4 +58,18 @@
   <data name="InterfaceLanguageLabel" xml:space="preserve"><value>Idioma de la interfaz</value></data>
   <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;Cancelar</value></data>
   <data name="ConversionCancelledMessage" xml:space="preserve"><value>Conversión cancelada.</value></data>
-</root>
+
+  <data name="CredentialFileLabel" xml:space="preserve"><value>Credenciales de Google</value></data>
+  <data name="AudioFolderLabel" xml:space="preserve"><value>Carpeta de audio</value></data>
+  <data name="BrowseButtonShortcut" xml:space="preserve"><value>&amp;Examinar...</value></data>
+  <data name="RefreshButtonShortcut" xml:space="preserve"><value>&amp;Actualizar</value></data>
+  <data name="ConvertButtonShortcut" xml:space="preserve"><value>&amp;Convertir</value></data>
+  <data name="FilesReadyLabel" xml:space="preserve"><value>Archivos de audio listos: {0}</value></data>
+  <data name="JsonFileFilter" xml:space="preserve"><value>Archivos JSON (*.json)|*.json|Todos los archivos (*.*)|*.*</value></data>
+  <data name="CredentialMissingMessage" xml:space="preserve"><value>Seleccione un archivo JSON valido de credenciales de Google.</value></data>
+  <data name="AudioFolderMissingMessage" xml:space="preserve"><value>Seleccione una carpeta de audio valida.</value></data>
+  <data name="ConversionCompletedMessage" xml:space="preserve"><value>Conversion completada.</value></data>
+  <data name="HelpFormCredential" xml:space="preserve"><value>Elija el archivo JSON de credenciales de Google con el boton Examinar. Puede estar en cualquier lugar del equipo.</value></data>
+  <data name="HelpFormAudioFolder" xml:space="preserve"><value>Elija la carpeta que contiene los archivos de audio. Puede ser cualquier carpeta; las subcarpetas se analizan automaticamente.</value></data>
+  <data name="HelpFormConvert" xml:space="preserve"><value>Revise la lista de archivos y luego pulse Convertir. El registro muestra el progreso y los errores.</value></data></root>
+

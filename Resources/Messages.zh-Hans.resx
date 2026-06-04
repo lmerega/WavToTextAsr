@@ -58,4 +58,18 @@
   <data name="InterfaceLanguageLabel" xml:space="preserve"><value>界面语言</value></data>
   <data name="CancelButtonShortcut" xml:space="preserve"><value>取消(&amp;C)</value></data>
   <data name="ConversionCancelledMessage" xml:space="preserve"><value>转换已取消。</value></data>
-</root>
+
+  <data name="CredentialFileLabel" xml:space="preserve"><value>Google 凭据</value></data>
+  <data name="AudioFolderLabel" xml:space="preserve"><value>音频文件夹</value></data>
+  <data name="BrowseButtonShortcut" xml:space="preserve"><value>浏览(&amp;B)...</value></data>
+  <data name="RefreshButtonShortcut" xml:space="preserve"><value>刷新(&amp;R)</value></data>
+  <data name="ConvertButtonShortcut" xml:space="preserve"><value>转换(&amp;C)</value></data>
+  <data name="FilesReadyLabel" xml:space="preserve"><value>可处理的音频文件: {0}</value></data>
+  <data name="JsonFileFilter" xml:space="preserve"><value>JSON 文件 (*.json)|*.json|所有文件 (*.*)|*.*</value></data>
+  <data name="CredentialMissingMessage" xml:space="preserve"><value>请选择有效的 Google 凭据 JSON 文件。</value></data>
+  <data name="AudioFolderMissingMessage" xml:space="preserve"><value>请选择有效的音频文件夹。</value></data>
+  <data name="ConversionCompletedMessage" xml:space="preserve"><value>转换完成。</value></data>
+  <data name="HelpFormCredential" xml:space="preserve"><value>使用浏览按钮选择 Google 凭据 JSON 文件。它可以位于计算机上的任何位置。</value></data>
+  <data name="HelpFormAudioFolder" xml:space="preserve"><value>选择包含音频文件的文件夹。可以是任意文件夹；子文件夹会自动扫描。</value></data>
+  <data name="HelpFormConvert" xml:space="preserve"><value>检查文件列表，然后按转换。日志会显示进度和错误。</value></data></root>
+

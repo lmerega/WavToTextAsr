@@ -841,6 +841,7 @@ internal static class TranscriptionService
     {
         status?.Invoke(I18n.Get("ReadingAudioFile"));
         byte[] audioBytes = await File.ReadAllBytesAsync(audioPath, cancellationToken);
+        AudioPayload audioPayload = AudioPayload.Prepare(audioPath, audioBytes);
 
         var config = new RecognitionConfig
         {
@@ -853,7 +854,7 @@ internal static class TranscriptionService
         {
             Recognizer = $"projects/{projectId}/locations/{GcpLocation}/recognizers/_",
             Config = config,
-            Content = ByteString.CopyFrom(audioBytes)
+            Content = ByteString.CopyFrom(audioPayload.Bytes)
         };
 
         status?.Invoke(I18n.Get("UploadDoneRecognitionRunning"));
@@ -966,6 +967,187 @@ internal static class TranscriptionService
         string normalized = NormalizeLanguageCode(rawCode);
         return string.IsNullOrWhiteSpace(normalized) ? rawCode : normalized;
     }
+
+    private sealed record AudioPayload(byte[] Bytes)
+    {
+        public static AudioPayload Prepare(string audioPath, byte[] audioBytes)
+        {
+            if (!Path.GetExtension(audioPath).Equals(".wav", StringComparison.OrdinalIgnoreCase))
+            {
+                return new AudioPayload(audioBytes);
+            }
+
+            if (!WavPcm16Converter.TryConvert(audioBytes, out byte[] convertedBytes))
+            {
+                return new AudioPayload(audioBytes);
+            }
+
+            return new AudioPayload(convertedBytes);
+        }
+    }
+}
+
+internal static class WavPcm16Converter
+{
+    public static bool TryConvert(byte[] wavBytes, out byte[] convertedBytes)
+    {
+        convertedBytes = wavBytes;
+
+        if (!TryReadPcmWave(wavBytes, out WavPcmInfo? wavInfo) || wavInfo is null)
+        {
+            return false;
+        }
+
+        if (wavInfo.BitsPerSample == 16)
+        {
+            return false;
+        }
+
+        if (wavInfo.BitsPerSample is not (24 or 32))
+        {
+            return false;
+        }
+
+        convertedBytes = BuildPcm16Wave(wavInfo);
+        return true;
+    }
+
+    private static bool TryReadPcmWave(byte[] wavBytes, out WavPcmInfo? wavInfo)
+    {
+        wavInfo = null;
+
+        using MemoryStream stream = new(wavBytes, writable: false);
+        using BinaryReader reader = new(stream, Encoding.UTF8, leaveOpen: false);
+
+        if (stream.Length < 44)
+        {
+            return false;
+        }
+
+        if (new string(reader.ReadChars(4)) != "RIFF")
+        {
+            return false;
+        }
+
+        reader.ReadUInt32();
+        if (new string(reader.ReadChars(4)) != "WAVE")
+        {
+            return false;
+        }
+
+        ushort audioFormat = 0;
+        ushort channels = 0;
+        uint sampleRate = 0;
+        ushort bitsPerSample = 0;
+        byte[]? data = null;
+
+        while (stream.Position + 8 <= stream.Length)
+        {
+            string chunkId = new(reader.ReadChars(4));
+            uint chunkSize = reader.ReadUInt32();
+
+            if (chunkSize > int.MaxValue || stream.Position + chunkSize > stream.Length)
+            {
+                return false;
+            }
+
+            long chunkDataStart = stream.Position;
+
+            if (chunkId == "fmt ")
+            {
+                if (chunkSize < 16)
+                {
+                    return false;
+                }
+
+                audioFormat = reader.ReadUInt16();
+                channels = reader.ReadUInt16();
+                sampleRate = reader.ReadUInt32();
+                reader.ReadUInt32();
+                reader.ReadUInt16();
+                bitsPerSample = reader.ReadUInt16();
+            }
+            else if (chunkId == "data")
+            {
+                data = reader.ReadBytes((int)chunkSize);
+            }
+
+            stream.Position = chunkDataStart + chunkSize;
+            if ((chunkSize & 1) == 1 && stream.Position < stream.Length)
+            {
+                stream.Position++;
+            }
+        }
+
+        if (audioFormat != 1 || channels == 0 || sampleRate == 0 || bitsPerSample == 0 || data is null)
+        {
+            return false;
+        }
+
+        wavInfo = new WavPcmInfo(channels, sampleRate, bitsPerSample, data);
+        return true;
+    }
+
+    private static byte[] BuildPcm16Wave(WavPcmInfo wavInfo)
+    {
+        int sourceBytesPerSample = wavInfo.BitsPerSample / 8;
+        int sampleCount = wavInfo.Data.Length / sourceBytesPerSample;
+        byte[] pcm16Data = new byte[sampleCount * sizeof(short)];
+
+        for (int i = 0; i < sampleCount; i++)
+        {
+            int sourceOffset = i * sourceBytesPerSample;
+            int sample = wavInfo.BitsPerSample switch
+            {
+                24 => ReadInt24LittleEndian(wavInfo.Data, sourceOffset),
+                32 => BitConverter.ToInt32(wavInfo.Data, sourceOffset),
+                _ => throw new InvalidOperationException("Unsupported PCM sample size.")
+            };
+
+            short sample16 = (short)Math.Clamp(sample >> (wavInfo.BitsPerSample - 16), short.MinValue, short.MaxValue);
+            byte[] bytes = BitConverter.GetBytes(sample16);
+            pcm16Data[(i * 2)] = bytes[0];
+            pcm16Data[(i * 2) + 1] = bytes[1];
+        }
+
+        using MemoryStream stream = new();
+        using BinaryWriter writer = new(stream, Encoding.UTF8, leaveOpen: true);
+
+        int blockAlign = wavInfo.Channels * sizeof(short);
+        int byteRate = checked((int)wavInfo.SampleRate * blockAlign);
+        int riffSize = 36 + pcm16Data.Length;
+
+        writer.Write(Encoding.ASCII.GetBytes("RIFF"));
+        writer.Write(riffSize);
+        writer.Write(Encoding.ASCII.GetBytes("WAVE"));
+        writer.Write(Encoding.ASCII.GetBytes("fmt "));
+        writer.Write(16);
+        writer.Write((ushort)1);
+        writer.Write(wavInfo.Channels);
+        writer.Write(wavInfo.SampleRate);
+        writer.Write(byteRate);
+        writer.Write((ushort)blockAlign);
+        writer.Write((ushort)16);
+        writer.Write(Encoding.ASCII.GetBytes("data"));
+        writer.Write(pcm16Data.Length);
+        writer.Write(pcm16Data);
+        writer.Flush();
+
+        return stream.ToArray();
+    }
+
+    private static int ReadInt24LittleEndian(byte[] bytes, int offset)
+    {
+        int value = bytes[offset] | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16);
+        if ((value & 0x00800000) != 0)
+        {
+            value |= unchecked((int)0xFF000000);
+        }
+
+        return value;
+    }
+
+    private sealed record WavPcmInfo(ushort Channels, uint SampleRate, ushort BitsPerSample, byte[] Data);
 }
 
 internal static class CredentialReader

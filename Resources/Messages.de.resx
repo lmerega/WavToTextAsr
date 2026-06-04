@@ -58,4 +58,18 @@
   <data name="InterfaceLanguageLabel" xml:space="preserve"><value>Oberflächensprache</value></data>
   <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;Abbrechen</value></data>
   <data name="ConversionCancelledMessage" xml:space="preserve"><value>Konvertierung abgebrochen.</value></data>
-</root>
+
+  <data name="CredentialFileLabel" xml:space="preserve"><value>Google-Anmeldedaten</value></data>
+  <data name="AudioFolderLabel" xml:space="preserve"><value>Audioordner</value></data>
+  <data name="BrowseButtonShortcut" xml:space="preserve"><value>&amp;Durchsuchen...</value></data>
+  <data name="RefreshButtonShortcut" xml:space="preserve"><value>&amp;Aktualisieren</value></data>
+  <data name="ConvertButtonShortcut" xml:space="preserve"><value>&amp;Konvertieren</value></data>
+  <data name="FilesReadyLabel" xml:space="preserve"><value>Audiodateien bereit: {0}</value></data>
+  <data name="JsonFileFilter" xml:space="preserve"><value>JSON-Dateien (*.json)|*.json|Alle Dateien (*.*)|*.*</value></data>
+  <data name="CredentialMissingMessage" xml:space="preserve"><value>Wahlen Sie eine gultige JSON-Datei mit Google-Anmeldedaten aus.</value></data>
+  <data name="AudioFolderMissingMessage" xml:space="preserve"><value>Wahlen Sie einen gultigen Audioordner aus.</value></data>
+  <data name="ConversionCompletedMessage" xml:space="preserve"><value>Konvertierung abgeschlossen.</value></data>
+  <data name="HelpFormCredential" xml:space="preserve"><value>Wahlen Sie die JSON-Datei mit den Google-Anmeldedaten uber die Schaltflache Durchsuchen aus. Sie kann sich an einem beliebigen Ort auf dem Computer befinden.</value></data>
+  <data name="HelpFormAudioFolder" xml:space="preserve"><value>Wahlen Sie den Ordner mit den Audiodateien aus. Es kann ein beliebiger Ordner sein; Unterordner werden automatisch durchsucht.</value></data>
+  <data name="HelpFormConvert" xml:space="preserve"><value>Prufen Sie die Dateiliste und klicken Sie dann auf Konvertieren. Das Protokoll zeigt Fortschritt und Fehler an.</value></data></root>
+

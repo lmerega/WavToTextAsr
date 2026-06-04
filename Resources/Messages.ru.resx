@@ -58,4 +58,18 @@
   <data name="InterfaceLanguageLabel" xml:space="preserve"><value>Язык интерфейса</value></data>
   <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;Отмена</value></data>
   <data name="ConversionCancelledMessage" xml:space="preserve"><value>Преобразование отменено.</value></data>
-</root>
+
+  <data name="CredentialFileLabel" xml:space="preserve"><value>Учетные данные Google</value></data>
+  <data name="AudioFolderLabel" xml:space="preserve"><value>Папка с аудио</value></data>
+  <data name="BrowseButtonShortcut" xml:space="preserve"><value>&amp;Обзор...</value></data>
+  <data name="RefreshButtonShortcut" xml:space="preserve"><value>&amp;Обновить</value></data>
+  <data name="ConvertButtonShortcut" xml:space="preserve"><value>&amp;Преобразовать</value></data>
+  <data name="FilesReadyLabel" xml:space="preserve"><value>Аудиофайлы готовы: {0}</value></data>
+  <data name="JsonFileFilter" xml:space="preserve"><value>Файлы JSON (*.json)|*.json|Все файлы (*.*)|*.*</value></data>
+  <data name="CredentialMissingMessage" xml:space="preserve"><value>Выберите корректный JSON-файл учетных данных Google.</value></data>
+  <data name="AudioFolderMissingMessage" xml:space="preserve"><value>Выберите корректную папку с аудио.</value></data>
+  <data name="ConversionCompletedMessage" xml:space="preserve"><value>Преобразование завершено.</value></data>
+  <data name="HelpFormCredential" xml:space="preserve"><value>Выберите JSON-файл учетных данных Google кнопкой Обзор. Он может находиться в любом месте на компьютере.</value></data>
+  <data name="HelpFormAudioFolder" xml:space="preserve"><value>Выберите папку, содержащую аудиофайлы. Это может быть любая папка; вложенные папки сканируются автоматически.</value></data>
+  <data name="HelpFormConvert" xml:space="preserve"><value>Проверьте список файлов, затем нажмите Преобразовать. Журнал показывает ход выполнения и ошибки.</value></data></root>
+

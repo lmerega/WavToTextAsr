@@ -58,4 +58,18 @@
   <data name="InterfaceLanguageLabel" xml:space="preserve"><value>インターフェース言語</value></data>
   <data name="CancelButtonShortcut" xml:space="preserve"><value>キャンセル(&amp;C)</value></data>
   <data name="ConversionCancelledMessage" xml:space="preserve"><value>変換がキャンセルされました。</value></data>
-</root>
+
+  <data name="CredentialFileLabel" xml:space="preserve"><value>Google 認証情報</value></data>
+  <data name="AudioFolderLabel" xml:space="preserve"><value>音声フォルダー</value></data>
+  <data name="BrowseButtonShortcut" xml:space="preserve"><value>参照(&amp;B)...</value></data>
+  <data name="RefreshButtonShortcut" xml:space="preserve"><value>更新(&amp;R)</value></data>
+  <data name="ConvertButtonShortcut" xml:space="preserve"><value>変換(&amp;C)</value></data>
+  <data name="FilesReadyLabel" xml:space="preserve"><value>変換可能な音声ファイル: {0}</value></data>
+  <data name="JsonFileFilter" xml:space="preserve"><value>JSON ファイル (*.json)|*.json|すべてのファイル (*.*)|*.*</value></data>
+  <data name="CredentialMissingMessage" xml:space="preserve"><value>有効な Google 認証情報 JSON ファイルを選択してください。</value></data>
+  <data name="AudioFolderMissingMessage" xml:space="preserve"><value>有効な音声フォルダーを選択してください。</value></data>
+  <data name="ConversionCompletedMessage" xml:space="preserve"><value>変換が完了しました。</value></data>
+  <data name="HelpFormCredential" xml:space="preserve"><value>参照ボタンで Google 認証情報の JSON ファイルを選択します。コンピューター上のどこにあっても構いません。</value></data>
+  <data name="HelpFormAudioFolder" xml:space="preserve"><value>音声ファイルを含むフォルダーを選択します。どのフォルダーでもよく、サブフォルダーも自動的に検索されます。</value></data>
+  <data name="HelpFormConvert" xml:space="preserve"><value>ファイル一覧を確認してから変換を押してください。ログに進行状況とエラーが表示されます。</value></data></root>
+

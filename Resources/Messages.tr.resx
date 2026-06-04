@@ -58,4 +58,18 @@
   <data name="InterfaceLanguageLabel" xml:space="preserve"><value>Arayüz dili</value></data>
   <data name="CancelButtonShortcut" xml:space="preserve"><value>&amp;İptal</value></data>
   <data name="ConversionCancelledMessage" xml:space="preserve"><value>Dönüştürme iptal edildi.</value></data>
-</root>
+
+  <data name="CredentialFileLabel" xml:space="preserve"><value>Google kimlik bilgileri</value></data>
+  <data name="AudioFolderLabel" xml:space="preserve"><value>Ses klasoru</value></data>
+  <data name="BrowseButtonShortcut" xml:space="preserve"><value>&amp;Gozat...</value></data>
+  <data name="RefreshButtonShortcut" xml:space="preserve"><value>&amp;Yenile</value></data>
+  <data name="ConvertButtonShortcut" xml:space="preserve"><value>&amp;Donustur</value></data>
+  <data name="FilesReadyLabel" xml:space="preserve"><value>Hazir ses dosyalari: {0}</value></data>
+  <data name="JsonFileFilter" xml:space="preserve"><value>JSON dosyalari (*.json)|*.json|Tum dosyalar (*.*)|*.*</value></data>
+  <data name="CredentialMissingMessage" xml:space="preserve"><value>Gecerli bir Google kimlik bilgileri JSON dosyasi secin.</value></data>
+  <data name="AudioFolderMissingMessage" xml:space="preserve"><value>Gecerli bir ses klasoru secin.</value></data>
+  <data name="ConversionCompletedMessage" xml:space="preserve"><value>Donusturme tamamlandi.</value></data>
+  <data name="HelpFormCredential" xml:space="preserve"><value>Google kimlik bilgileri JSON dosyasini Gozat dugmesiyle secin. Bilgisayarda herhangi bir yerde olabilir.</value></data>
+  <data name="HelpFormAudioFolder" xml:space="preserve"><value>Ses dosyalarini iceren klasoru secin. Herhangi bir klasor olabilir; alt klasorler otomatik olarak taranir.</value></data>
+  <data name="HelpFormConvert" xml:space="preserve"><value>Dosya listesini kontrol edin, sonra Donustur'e basin. Gunluk ilerlemeyi ve hatalari gosterir.</value></data></root>
+
