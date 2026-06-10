@@ -465,7 +465,7 @@ internal sealed class MainForm : Form
 
             string summaryFileName = $"Transcriptions_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.txt";
             string summaryPath = Path.Combine(baseDir, summaryFileName);
-            await TranscriptionService.WriteSummaryFileAsync(summaryPath, result.Entries);
+            await TranscriptionService.WriteSummaryFileAsync(summaryPath, result);
 
             AppendLog("");
             AppendLog(I18n.Get("RunSummaryTitle"));
@@ -741,6 +741,8 @@ internal static class TranscriptionService
 {
     public const string GcpEndpoint = "eu-speech.googleapis.com";
     private const string GcpLocation = "eu";
+    private const int MaxInlineAudioBytes = 9_500_000;
+    private const int MaxInlineAudioSeconds = 55;
 
     private static readonly string[] AutoLanguageCodes = ["auto"];
 
@@ -804,7 +806,7 @@ internal static class TranscriptionService
 
     public static async Task WriteSummaryFileAsync(
         string summaryPath,
-        IReadOnlyList<RecognitionEntry> entries)
+        RecognitionRunResult result)
     {
         StringBuilder sb = new();
         sb.AppendLine("============================================================");
@@ -812,7 +814,7 @@ internal static class TranscriptionService
         sb.AppendLine("============================================================");
         sb.AppendLine();
 
-        foreach (RecognitionEntry entry in entries)
+        foreach (RecognitionEntry entry in result.Entries)
         {
             sb.AppendLine(I18n.Format("SummaryFileName", entry.AudioPath));
             sb.AppendLine(I18n.Format("SummaryLanguage", MapLanguageName(entry.DetectedLanguageCode)));
@@ -825,6 +827,17 @@ internal static class TranscriptionService
             sb.AppendLine(entry.Transcript);
             sb.AppendLine();
             sb.AppendLine("------------------------------------------------------------");
+            sb.AppendLine();
+        }
+
+        if (result.FailedFiles.Count > 0)
+        {
+            sb.AppendLine("FAILED FILES:");
+            foreach (string failedFile in result.FailedFiles)
+            {
+                sb.AppendLine(failedFile);
+            }
+
             sb.AppendLine();
         }
 
@@ -842,44 +855,30 @@ internal static class TranscriptionService
         status?.Invoke(I18n.Get("ReadingAudioFile"));
         byte[] audioBytes = await File.ReadAllBytesAsync(audioPath, cancellationToken);
         AudioPayload audioPayload = AudioPayload.Prepare(audioPath, audioBytes);
-
-        var config = new RecognitionConfig
-        {
-            AutoDecodingConfig = new AutoDetectDecodingConfig(),
-            Model = "chirp_3"
-        };
-        config.LanguageCodes.AddRange(autoLanguageCodes);
-
-        var request = new RecognizeRequest
-        {
-            Recognizer = $"projects/{projectId}/locations/{GcpLocation}/recognizers/_",
-            Config = config,
-            Content = ByteString.CopyFrom(audioPayload.Bytes)
-        };
+        IReadOnlyList<AudioChunk> chunks = AudioChunker.CreateChunks(audioPayload);
+        AudioContentKind contentKind = AudioContentClassifier.Detect(audioPath, audioPayload, chunks.Count);
 
         status?.Invoke(I18n.Get("UploadDoneRecognitionRunning"));
         Stopwatch sw = Stopwatch.StartNew();
-        RecognizeResponse response = await client.RecognizeAsync(request, cancellationToken: cancellationToken);
-        sw.Stop();
-        status?.Invoke(I18n.Get("ReceivingRecognizedText"));
-
         StringBuilder sb = new();
         string rawLanguageCode = "";
 
-        foreach (SpeechRecognitionResult result in response.Results)
+        for (int i = 0; i < chunks.Count; i++)
         {
-            SpeechRecognitionAlternative? alt = result.Alternatives.FirstOrDefault();
-            if (!string.IsNullOrWhiteSpace(alt?.Transcript))
+            if (chunks.Count > 1)
             {
-                sb.AppendLine(alt.Transcript.Trim());
-                sb.AppendLine();
+                status?.Invoke($"{I18n.Get("UploadDoneRecognitionRunning")} ({i + 1}/{chunks.Count})");
             }
 
-            if (!string.IsNullOrWhiteSpace(result.LanguageCode))
-            {
-                rawLanguageCode = result.LanguageCode;
-            }
+            RecognizeResponse response = await client.RecognizeAsync(
+                CreateRecognizeRequest(projectId, autoLanguageCodes, chunks[i], contentKind),
+                cancellationToken: cancellationToken);
+
+            AppendRecognitionResponse(response, contentKind, chunks[i], sb, ref rawLanguageCode);
         }
+
+        sw.Stop();
+        status?.Invoke(I18n.Get("ReceivingRecognizedText"));
 
         string transcript = sb.ToString().Trim();
         if (string.IsNullOrWhiteSpace(transcript))
@@ -895,6 +894,184 @@ internal static class TranscriptionService
             rawLanguageCode,
             transcript,
             sw.ElapsedMilliseconds);
+    }
+
+    private static RecognizeRequest CreateRecognizeRequest(
+        string projectId,
+        IReadOnlyList<string> autoLanguageCodes,
+        AudioChunk chunk,
+        AudioContentKind contentKind)
+    {
+        var config = new RecognitionConfig
+        {
+            Model = "chirp_3"
+        };
+        if (chunk.SampleRate > 0 && chunk.Channels > 0)
+        {
+            config.ExplicitDecodingConfig = new ExplicitDecodingConfig
+            {
+                Encoding = ExplicitDecodingConfig.Types.AudioEncoding.Linear16,
+                SampleRateHertz = checked((int)chunk.SampleRate),
+                AudioChannelCount = chunk.Channels
+            };
+        }
+        else
+        {
+            config.AutoDecodingConfig = new AutoDetectDecodingConfig();
+        }
+
+        config.LanguageCodes.AddRange(autoLanguageCodes);
+
+        if (contentKind == AudioContentKind.Conversation)
+        {
+            config.Features = chunk.Channels > 1
+                ? new RecognitionFeatures
+                {
+                    MultiChannelMode = RecognitionFeatures.Types.MultiChannelMode.SeparateRecognitionPerChannel
+                }
+                : new RecognitionFeatures
+                {
+                    DiarizationConfig = new SpeakerDiarizationConfig
+                    {
+                        MinSpeakerCount = 2,
+                        MaxSpeakerCount = 6
+                    }
+                };
+        }
+
+        return new RecognizeRequest
+        {
+            Recognizer = $"projects/{projectId}/locations/{GcpLocation}/recognizers/_",
+            Config = config,
+            Content = ByteString.CopyFrom(chunk.Bytes)
+        };
+    }
+
+    private static void AppendRecognitionResponse(
+        RecognizeResponse response,
+        AudioContentKind contentKind,
+        AudioChunk chunk,
+        StringBuilder sb,
+        ref string rawLanguageCode)
+    {
+        foreach (SpeechRecognitionResult result in response.Results)
+        {
+            if (!string.IsNullOrWhiteSpace(result.LanguageCode))
+            {
+                rawLanguageCode = result.LanguageCode;
+            }
+        }
+
+        if (contentKind == AudioContentKind.Conversation)
+        {
+            if (chunk.Channels > 1 && TryAppendMultiChannelTranscript(response, sb))
+            {
+                return;
+            }
+
+            SpeechRecognitionAlternative? diarizedAlternative = response.Results
+                .Select(result => result.Alternatives.FirstOrDefault())
+                .LastOrDefault(alt => alt?.Words.Count > 0);
+
+            if (TryAppendDiarizedTranscript(diarizedAlternative, sb, clearExisting: false))
+            {
+                return;
+            }
+        }
+
+        foreach (SpeechRecognitionResult result in response.Results)
+        {
+            SpeechRecognitionAlternative? alt = result.Alternatives.FirstOrDefault();
+            if (!string.IsNullOrWhiteSpace(alt?.Transcript))
+            {
+                sb.AppendLine(alt.Transcript.Trim());
+                sb.AppendLine();
+            }
+        }
+    }
+
+    private static bool TryAppendMultiChannelTranscript(RecognizeResponse response, StringBuilder sb)
+    {
+        bool appended = false;
+
+        foreach (SpeechRecognitionResult result in response.Results)
+        {
+            SpeechRecognitionAlternative? alt = result.Alternatives.FirstOrDefault();
+            if (string.IsNullOrWhiteSpace(alt?.Transcript))
+            {
+                continue;
+            }
+
+            string speaker = result.ChannelTag > 0
+                ? $"Channel {result.ChannelTag}"
+                : "Channel";
+            sb.AppendLine($"{speaker}: {alt.Transcript.Trim()}");
+            sb.AppendLine();
+            appended = true;
+        }
+
+        return appended;
+    }
+
+    private static bool TryAppendDiarizedTranscript(
+        SpeechRecognitionAlternative? alternative,
+        StringBuilder sb,
+        bool clearExisting)
+    {
+        if (alternative is null || alternative.Words.Count == 0)
+        {
+            return false;
+        }
+
+        var words = alternative.Words
+            .Where(word => !string.IsNullOrWhiteSpace(word.Word) && !string.IsNullOrWhiteSpace(word.SpeakerLabel))
+            .ToList();
+
+        if (words.Count == 0)
+        {
+            return false;
+        }
+
+        if (clearExisting && sb.Length > 0)
+        {
+            sb.Clear();
+        }
+
+        string currentSpeaker = words[0].SpeakerLabel;
+        StringBuilder currentLine = new();
+        currentLine.Append(FormatSpeakerLabel(currentSpeaker));
+        currentLine.Append(": ");
+        currentLine.Append(words[0].Word.Trim());
+
+        foreach (WordInfo word in words.Skip(1))
+        {
+            string speaker = word.SpeakerLabel;
+            string text = word.Word.Trim();
+
+            if (speaker == currentSpeaker)
+            {
+                currentLine.Append(' ');
+                currentLine.Append(text);
+                continue;
+            }
+
+            sb.AppendLine(currentLine.ToString());
+            sb.AppendLine();
+            currentSpeaker = speaker;
+            currentLine.Clear();
+            currentLine.Append(FormatSpeakerLabel(currentSpeaker));
+            currentLine.Append(": ");
+            currentLine.Append(text);
+        }
+
+        sb.AppendLine(currentLine.ToString());
+        sb.AppendLine();
+        return true;
+    }
+
+    private static string FormatSpeakerLabel(string speakerLabel)
+    {
+        return $"Speaker {speakerLabel}";
     }
 
     private static string NormalizeLanguageCode(string? rawCode)
@@ -968,21 +1145,160 @@ internal static class TranscriptionService
         return string.IsNullOrWhiteSpace(normalized) ? rawCode : normalized;
     }
 
-    private sealed record AudioPayload(byte[] Bytes)
+    private sealed record AudioPayload(byte[] Bytes, WavPcmInfo? WavInfo)
     {
         public static AudioPayload Prepare(string audioPath, byte[] audioBytes)
         {
             if (!Path.GetExtension(audioPath).Equals(".wav", StringComparison.OrdinalIgnoreCase))
             {
-                return new AudioPayload(audioBytes);
+                return new AudioPayload(audioBytes, null);
+            }
+
+            if (!WavPcm16Converter.TryReadPcmWave(audioBytes, out WavPcmInfo? wavInfo) || wavInfo is null)
+            {
+                return new AudioPayload(audioBytes, null);
+            }
+
+            if (wavInfo.BitsPerSample == 16)
+            {
+                return new AudioPayload(audioBytes, wavInfo);
             }
 
             if (!WavPcm16Converter.TryConvert(audioBytes, out byte[] convertedBytes))
             {
-                return new AudioPayload(audioBytes);
+                return new AudioPayload(audioBytes, null);
             }
 
-            return new AudioPayload(convertedBytes);
+            if (!WavPcm16Converter.TryReadPcmWave(convertedBytes, out WavPcmInfo? convertedInfo) || convertedInfo is null)
+            {
+                return new AudioPayload(convertedBytes, null);
+            }
+
+            return new AudioPayload(convertedBytes, convertedInfo);
+        }
+    }
+
+    private enum AudioContentKind
+    {
+        ShortMessage,
+        LongMessage,
+        Conversation
+    }
+
+    private sealed record AudioChunk(byte[] Bytes, ushort Channels, uint SampleRate);
+
+    private static class AudioChunker
+    {
+        public static IReadOnlyList<AudioChunk> CreateChunks(AudioPayload payload)
+        {
+            if (payload.WavInfo is null
+                && payload.Bytes.Length <= MaxInlineAudioBytes)
+            {
+                return [new AudioChunk(payload.Bytes, 0, 0)];
+            }
+
+            if (payload.WavInfo is null)
+            {
+                throw new InvalidDataException("Audio file is too long for inline Google recognition and cannot be split automatically. Use a WAV PCM file or a shorter audio file.");
+            }
+
+            WavPcmInfo wavInfo = payload.WavInfo;
+            if (wavInfo.BitsPerSample != 16)
+            {
+                throw new InvalidDataException("Audio file is too long and cannot be split because it is not a supported PCM 16-bit WAV file.");
+            }
+
+            if (wavInfo.Data.Length <= MaxInlineAudioBytes && wavInfo.DurationSeconds <= MaxInlineAudioSeconds)
+            {
+                return [new AudioChunk(wavInfo.Data, wavInfo.Channels, wavInfo.SampleRate)];
+            }
+
+            int blockAlign = wavInfo.BlockAlign;
+            int byteRate = wavInfo.ByteRate;
+            int maxDataByDuration = byteRate * MaxInlineAudioSeconds;
+            int maxDataBySize = Math.Max(blockAlign, MaxInlineAudioBytes);
+            int maxDataBytes = Math.Min(maxDataByDuration, maxDataBySize);
+            maxDataBytes -= maxDataBytes % blockAlign;
+
+            if (maxDataBytes <= 0)
+            {
+                throw new InvalidDataException("Audio file cannot be split into valid chunks.");
+            }
+
+            List<AudioChunk> chunks = [];
+            for (int offset = 0; offset < wavInfo.Data.Length; offset += maxDataBytes)
+            {
+                int length = Math.Min(maxDataBytes, wavInfo.Data.Length - offset);
+                length -= length % blockAlign;
+                if (length <= 0)
+                {
+                    break;
+                }
+
+                byte[] data = new byte[length];
+                Buffer.BlockCopy(wavInfo.Data, offset, data, 0, length);
+                chunks.Add(new AudioChunk(data, wavInfo.Channels, wavInfo.SampleRate));
+            }
+
+            return chunks;
+        }
+
+        private static double GetDurationSeconds(WavPcmInfo? wavInfo)
+        {
+            return wavInfo is null ? 0 : wavInfo.DurationSeconds;
+        }
+    }
+
+    private static class AudioContentClassifier
+    {
+        private static readonly string[] ConversationKeywords =
+        [
+            "conversazione",
+            "conversation",
+            "chiamata",
+            "call",
+            "telefonata",
+            "meeting",
+            "riunione",
+            "colloquio",
+            "intervista",
+            "interview"
+        ];
+
+        public static AudioContentKind Detect(string audioPath, AudioPayload payload, int chunkCount)
+        {
+            string text = NormalizeForClassification(Path.GetFileNameWithoutExtension(audioPath));
+
+            if (ConversationKeywords.Any(keyword => text.Contains(keyword, StringComparison.Ordinal))
+                || IsLikelyConversation(payload.WavInfo))
+            {
+                return AudioContentKind.Conversation;
+            }
+
+            return chunkCount > 1 ? AudioContentKind.LongMessage : AudioContentKind.ShortMessage;
+        }
+
+        private static bool IsLikelyConversation(WavPcmInfo? wavInfo)
+        {
+            return wavInfo is not null
+                && wavInfo.Channels > 1
+                && wavInfo.DurationSeconds > MaxInlineAudioSeconds;
+        }
+
+        private static string NormalizeForClassification(string value)
+        {
+            string normalized = value.Normalize(NormalizationForm.FormD);
+            StringBuilder sb = new(normalized.Length);
+
+            foreach (char c in normalized)
+            {
+                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                {
+                    sb.Append(char.ToLowerInvariant(c));
+                }
+            }
+
+            return sb.ToString().Normalize(NormalizationForm.FormC);
         }
     }
 }
@@ -1003,7 +1319,7 @@ internal static class WavPcm16Converter
             return false;
         }
 
-        if (wavInfo.BitsPerSample is not (24 or 32))
+        if (wavInfo.BitsPerSample is not (8 or 24 or 32))
         {
             return false;
         }
@@ -1012,7 +1328,7 @@ internal static class WavPcm16Converter
         return true;
     }
 
-    private static bool TryReadPcmWave(byte[] wavBytes, out WavPcmInfo? wavInfo)
+    public static bool TryReadPcmWave(byte[] wavBytes, out WavPcmInfo? wavInfo)
     {
         wavInfo = null;
 
@@ -1088,26 +1404,30 @@ internal static class WavPcm16Converter
         return true;
     }
 
-    private static byte[] BuildPcm16Wave(WavPcmInfo wavInfo)
+    public static byte[] BuildPcm16Wave(WavPcmInfo wavInfo)
     {
-        int sourceBytesPerSample = wavInfo.BitsPerSample / 8;
-        int sampleCount = wavInfo.Data.Length / sourceBytesPerSample;
-        byte[] pcm16Data = new byte[sampleCount * sizeof(short)];
-
-        for (int i = 0; i < sampleCount; i++)
+        byte[] pcm16Data;
+        if (wavInfo.BitsPerSample == 16)
         {
-            int sourceOffset = i * sourceBytesPerSample;
-            int sample = wavInfo.BitsPerSample switch
-            {
-                24 => ReadInt24LittleEndian(wavInfo.Data, sourceOffset),
-                32 => BitConverter.ToInt32(wavInfo.Data, sourceOffset),
-                _ => throw new InvalidOperationException("Unsupported PCM sample size.")
-            };
+            pcm16Data = wavInfo.Data;
+        }
+        else
+        {
+            int sourceBytesPerSample = wavInfo.BitsPerSample / 8;
+            int sampleCount = wavInfo.Data.Length / sourceBytesPerSample;
+            pcm16Data = new byte[sampleCount * sizeof(short)];
 
-            short sample16 = (short)Math.Clamp(sample >> (wavInfo.BitsPerSample - 16), short.MinValue, short.MaxValue);
-            byte[] bytes = BitConverter.GetBytes(sample16);
-            pcm16Data[(i * 2)] = bytes[0];
-            pcm16Data[(i * 2) + 1] = bytes[1];
+            for (int i = 0; i < sampleCount; i++)
+            {
+                int sourceOffset = i * sourceBytesPerSample;
+                short sample16 = wavInfo.BitsPerSample == 8
+                    ? (short)((wavInfo.Data[sourceOffset] - 128) << 8)
+                    : ConvertWidePcmSampleToInt16(wavInfo, sourceOffset);
+
+                byte[] bytes = BitConverter.GetBytes(sample16);
+                pcm16Data[(i * 2)] = bytes[0];
+                pcm16Data[(i * 2) + 1] = bytes[1];
+            }
         }
 
         using MemoryStream stream = new();
@@ -1136,6 +1456,18 @@ internal static class WavPcm16Converter
         return stream.ToArray();
     }
 
+    private static short ConvertWidePcmSampleToInt16(WavPcmInfo wavInfo, int sourceOffset)
+    {
+        int sample = wavInfo.BitsPerSample switch
+        {
+            24 => ReadInt24LittleEndian(wavInfo.Data, sourceOffset),
+            32 => BitConverter.ToInt32(wavInfo.Data, sourceOffset),
+            _ => throw new InvalidOperationException("Unsupported PCM sample size.")
+        };
+
+        return (short)Math.Clamp(sample >> (wavInfo.BitsPerSample - 16), short.MinValue, short.MaxValue);
+    }
+
     private static int ReadInt24LittleEndian(byte[] bytes, int offset)
     {
         int value = bytes[offset] | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16);
@@ -1146,8 +1478,13 @@ internal static class WavPcm16Converter
 
         return value;
     }
+}
 
-    private sealed record WavPcmInfo(ushort Channels, uint SampleRate, ushort BitsPerSample, byte[] Data);
+internal sealed record WavPcmInfo(ushort Channels, uint SampleRate, ushort BitsPerSample, byte[] Data)
+{
+    public int BlockAlign => Channels * (BitsPerSample / 8);
+    public int ByteRate => checked((int)SampleRate * BlockAlign);
+    public double DurationSeconds => ByteRate == 0 ? 0 : (double)Data.Length / ByteRate;
 }
 
 internal static class CredentialReader
