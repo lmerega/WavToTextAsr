@@ -8,7 +8,9 @@ WavToTextAsr is a Windows desktop tool that converts audio files into text files
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
 
-It provides a small form where the user can choose the interface language, select the Google credentials JSON file, select the folder that contains the audio files, review the files found, read the instructions, and start the conversion.
+Current version: **1.0.2**.
+
+It provides a small form where the user can choose the interface language, select the Google credentials JSON file, select the folder that contains the audio files, review the files found, read the instructions, and start the conversion. The application automatically handles short messages, long messages, and conversations without asking the user to choose a processing mode.
 
 The application is built for **Windows 64-bit only**. The project targets `win-x64`, so the published executable is intended for 64-bit Windows machines.
 
@@ -53,7 +55,23 @@ The application remembers the last selected language, credentials file, and audi
 
 For each audio file, the program creates a `.txt` file in the same folder.
 
-For `.wav` files, the application also handles PCM variants that may need normalization before they are sent to Google Speech-to-Text, including higher bit depth PCM files that still play correctly in standard media players.
+For `.wav` files, the application also handles PCM variants that may need normalization before they are sent to Google Speech-to-Text, including 8-bit, 24-bit, and 32-bit PCM files that still play correctly in standard media players.
+
+## Automatic Audio Handling
+
+The application automatically classifies each file as one of these cases:
+
+- **Short message**: the file is sent to Google Speech-to-Text in a single request.
+- **Long message**: long WAV PCM audio is split into safe chunks and the transcript is merged into one `.txt` file.
+- **Conversation**: long multi-channel WAV PCM audio is split into safe chunks and transcribed with separate per-channel recognition.
+
+For WAV PCM audio, chunks are sent as explicit `Linear16` audio with sample rate and channel count, avoiding Google auto-detection errors for common WAV variants.
+
+For stereo or multi-channel conversations, Google Speech-to-Text returns a separate transcript per channel. The output labels these sections as `Channel 1`, `Channel 2`, and so on.
+
+For mono conversations where speaker labels are available, the output can include `Speaker 1`, `Speaker 2`, and so on.
+
+Non-WAV formats are still sent directly to Google Speech-to-Text when they fit within the inline request limits. Long non-WAV files are reported as failed instead of being silently ignored.
 
 It also creates a global summary file next to the executable. The file name includes the date and time of the conversion so that each run produces a separate file:
 
@@ -62,6 +80,8 @@ Transcriptions_2026-05-29_14-30-00.txt
 ```
 
 If there are no audio files to convert, the form stays open and shows the message in the log area.
+
+If one or more files fail, the global summary includes a `FAILED FILES` section with the Google or local processing error message.
 
 ## Google Credentials
 
