@@ -2,6 +2,21 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.0.2] - 2026-06-10
+
+### Added
+- Added automatic handling for short messages, long messages, and conversations.
+- Added WAV PCM chunking for long audio so files over the synchronous Google Speech-to-Text inline limits can be processed in safe segments.
+- Added multi-channel conversation recognition with separate per-channel transcription.
+
+### Fixed
+- Added explicit Linear16 decoding parameters for normalized WAV PCM audio sent to Google Speech-to-Text.
+- Added normalization for 8-bit PCM WAV files.
+- Added failed-file details to the transcription summary so Google errors are visible.
+
+### Changed
+- Updated package and assembly version to `1.0.2`.
+
 ## [1.0.1] - 2026-06-04
 
 ### Fixed
